@@ -18,6 +18,10 @@ def main():
              'Mc_core_list mc_core_list;', 'Motor_Control_list motor_control_list;']
     code.append(runner.extract_function(ROOT / 'USER/user_control.c', 'void user_direction_handle(void)'))
     code.append(runner.extract_function(ROOT / 'USER/user_control.c', 'u8 key_scan(void)'))
+    code += ['void Bsp_Op_Init(void) {}', 'void Bsp_Comp_Init(void) {}',
+             'void Bsp_Adc_Init(void) {}', 'void Bsp_Pwm_Init(void) {}']
+    for signature in ['void Bsp_Key_Init(void)', 'void Bsp_dir_init(void)', 'void Bsp_Gpio_Init(void)']:
+        code.append(runner.extract_function(ROOT / 'USER/board.c', signature))
     for signature in ['uint8_t Bat_Com_CanRun(void)', 'void Bat_Com_Sleep(void)', 'void Bat_Com_Restart(void)']:
         code.append(runner.extract_function(ROOT / 'USER/Bat_com.c', signature))
     code.append(runner.extract_function(ROOT / 'USER/user_control.c', 'void user_state_control(void)'))
@@ -38,9 +42,14 @@ def main():
                  'MM32SPIN0230/Include', 'MM32SPIN0230/HAL_Lib/inc', 'CMSIS/Core/Include']:
         command += ['-I', str(ROOT / path)]
     subprocess.run(command, check=True, cwd=ROOT)
-    execute(image)
-    for scenario in range(1, 5):
-        execute(image, scenario)
+    failures = []
+    for scenario in range(6):
+        try:
+            execute(image, scenario)
+        except AssertionError as error:
+            failures.append(str(error))
+    if failures:
+        raise AssertionError('; '.join(failures))
 
 def execute(image, boot_scenario=0):
     import struct
@@ -79,7 +88,8 @@ def execute(image, boot_scenario=0):
     line, case, checks = map(word, ['test_failure_line', 'test_case', 'test_checks'])
     if line:
         raise AssertionError(f'case {case}, test_seven_led.c:{line}, after {checks} checks')
-    label = f'SOC boot profile {boot_scenario}' if boot_scenario else f'{case} cases'
+    label = ('SWD startup profile' if boot_scenario == 5 else
+             f'SOC boot profile {boot_scenario}' if boot_scenario else f'{case} cases')
     print(f'PASS: {label}, {checks} checks (ARM C / simulated GPIO, not a bench test)')
 
 if __name__ == '__main__':

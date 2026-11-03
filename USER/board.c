@@ -374,8 +374,7 @@ void Bsp_Gpio_Init(void)
 
 //		Bsp_LED_Init();
 //		LED1_ON();
-		Bsp_dir_init();
-		Bsp_Key_Init();
+		/* DIR/KEY共享灯脚由校准后的led_init接管，先保留PA14的SWD启动窗口。 */
 }
 /**
   * @brief ADC初始化函数

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\.planning\2026-11-03-seven-led-io\build\Objects\SPIN0230_DEMO.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\.planning\2026-11-03-seven-led-io\build\Objects\SPIN0230_DEMO.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Tue Nov  3 16:34:51 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Tue Nov  3 18:26:18 2026
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -576,11 +576,10 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6f]"></a>Bsp_Gpio_Init</STRONG> (Thumb, 188 bytes, Stack size 32 bytes, board.o(.text.Bsp_Gpio_Init))
+<P><STRONG><a name="[6f]"></a>Bsp_Gpio_Init</STRONG> (Thumb, 112 bytes, Stack size 32 bytes, board.o(.text.Bsp_Gpio_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Bsp_Gpio_Init &rArr; Bsp_Pwm_Init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bsp_Pwm_Init
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bsp_Adc_Init
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_StructInit
@@ -793,7 +792,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bsp_Pwm_Init
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;En_Port_init
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bsp_Gpio_Init
 </UL>
 
 <P><STRONG><a name="[90]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, hal_gpio.o(.text.GPIO_ReadInputDataBit))
@@ -811,7 +809,6 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Scan
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UO_Led_Handler
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_state_control
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;En_Port_init
 </UL>
 
@@ -844,8 +841,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8f]"></a>LED_Scan</STRONG> (Thumb, 404 bytes, Stack size 32 bytes, led.o(.text.LED_Scan))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LED_Scan
+<P><STRONG><a name="[8f]"></a>LED_Scan</STRONG> (Thumb, 772 bytes, Stack size 40 bytes, led.o(.text.LED_Scan))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = LED_Scan
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
@@ -1252,13 +1249,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b3]"></a>Volt_Handler</STRONG> (Thumb, 272 bytes, Stack size 16 bytes, user_control.o(.text.Volt_Handler))
+<P><STRONG><a name="[b3]"></a>Volt_Handler</STRONG> (Thumb, 252 bytes, Stack size 16 bytes, user_control.o(.text.Volt_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Volt_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b2]"></a>Volt_Handler_fast</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, user_control.o(.text.Volt_Handler_fast))
+<P><STRONG><a name="[b2]"></a>Volt_Handler_fast</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, user_control.o(.text.Volt_Handler_fast))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Volt_Handler_fast
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1294,14 +1291,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a8]"></a>led_init</STRONG> (Thumb, 192 bytes, Stack size 32 bytes, led.o(.text.led_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = led_init &rArr; GPIO_Init
+<P><STRONG><a name="[a8]"></a>led_init</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, led.o(.text.led_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = led_init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_StructInit
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1344,7 +1340,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[ac]"></a>mc_init</STRONG> (Thumb, 172 bytes, Stack size 96 bytes, motor_control.o(.text.mc_init))
+<P><STRONG><a name="[ac]"></a>mc_init</STRONG> (Thumb, 168 bytes, Stack size 96 bytes, motor_control.o(.text.mc_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = mc_init &rArr; mc_core_list_init &rArr; __aeabi_ui2f &rArr; _float_epilogue
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mc_core_list_init
@@ -1457,7 +1453,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b6]"></a>user_oc_handle</STRONG> (Thumb, 528 bytes, Stack size 24 bytes, user_control.o(.text.user_oc_handle))
+<P><STRONG><a name="[b6]"></a>user_oc_handle</STRONG> (Thumb, 500 bytes, Stack size 24 bytes, user_control.o(.text.user_oc_handle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = user_oc_handle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main

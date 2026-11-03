@@ -7,40 +7,65 @@ User_LED_Control_t user_led_control;
 volatile BITS_UNION ledData;
 static uint8_t led_scan_index;
 
-/* 换行前先断开所有阳极，再将公共阴极全拉高，避免切换瞬间串灯。 */
+/* 与参考顺序一致：先关闭行输出，再清CNF；COM随后准备为推挽高电平。 */
+static void led_rows_off(void)
+{
+	MODIFY_REG(GPIOB->CRH, GPIO_CRH_MODE8, 0);
+	MODIFY_REG(GPIOA->CRH, GPIO_CRH_MODE14, 0);
+	MODIFY_REG(GPIOB->CRH, GPIO_CRH_CNF8, 0);
+	MODIFY_REG(GPIOA->CRH, GPIO_CRH_CNF14, 0);
+}
+
 static void led_matrix_blank(void)
 {
-	MODIFY_REG(GPIOB->CRH, GPIO_CRH_MODE8 | GPIO_CRH_CNF8, 0);
-	MODIFY_REG(GPIOA->CRH, GPIO_CRH_MODE14 | GPIO_CRH_CNF14, 0);
+	led_rows_off();
 	GPIO_SetBits(GPIOA, LED_COM1_PIN | LED_COM2_PIN | LED_COM3_PIN);
 	GPIO_SetBits(GPIOB, LED_COM4_PIN);
+	MODIFY_REG(GPIOA->CRH, GPIO_CRH_MODE13 | GPIO_CRH_CNF13 | GPIO_CRH_MODE10 | GPIO_CRH_CNF10,
+		(1u << GPIO_CRH_MODE13_Pos) | (1u << GPIO_CRH_MODE10_Pos));
+	MODIFY_REG(GPIOA->CRL, GPIO_CRL_MODE0 | GPIO_CRL_CNF0, 1u << GPIO_CRL_MODE0_Pos);
+	MODIFY_REG(GPIOB->CRH, GPIO_CRH_MODE9 | GPIO_CRH_CNF9, 1u << GPIO_CRH_MODE9_Pos);
+}
+
+/* 参考每轮留4槽全高阻，必须包括PA13/SWDIO公共端及新增COM4。 */
+static void led_matrix_release(void)
+{
+	led_rows_off();
+	MODIFY_REG(GPIOA->CRH, GPIO_CRH_MODE13 | GPIO_CRH_MODE10, 0);
+	MODIFY_REG(GPIOA->CRL, GPIO_CRL_MODE0, 0);
+	MODIFY_REG(GPIOB->CRH, GPIO_CRH_MODE9, 0);
+	MODIFY_REG(GPIOA->CRH, GPIO_CRH_CNF13 | GPIO_CRH_CNF10, 0);
+	MODIFY_REG(GPIOA->CRL, GPIO_CRL_CNF0, 0);
+	MODIFY_REG(GPIOB->CRH, GPIO_CRH_CNF9, 0);
 }
 
 static void led_inputs_prepare(void)
 {
+	led_matrix_blank();
 	GPIO_SetBits(GPIOB, LED_ROW1_PIN);
 	GPIO_SetBits(GPIOA, LED_ROW2_PIN);
-	MODIFY_REG(GPIOB->CRH, GPIO_CRH_MODE8 | GPIO_CRH_CNF8, 2u << GPIO_CRH_CNF8_Pos);
-	MODIFY_REG(GPIOA->CRH, GPIO_CRH_MODE14 | GPIO_CRH_CNF14, 2u << GPIO_CRH_CNF14_Pos);
+	MODIFY_REG(GPIOB->CRH, GPIO_CRH_CNF8, 2u << GPIO_CRH_CNF8_Pos);
+	MODIFY_REG(GPIOA->CRH, GPIO_CRH_CNF14, 2u << GPIO_CRH_CNF14_Pos);
 }
 
 void led_init(void)
 {
 	GPIO_InitTypeDef gpio;
 	RCC_AHBPeriphClockCmd(RCC_AHBENR_GPIOA_Msk | RCC_AHBENR_GPIOB_Msk, ENABLE);
-	/* PA13/14退出SWD复用；PA11电源保持独立，不得在扫描中修改。 */
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource13, GPIO_AF_1);
+	/* 校准后才按参考接管PA13/14；初始化浮空，避免提前持续驱动烧录口。 */
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource14, GPIO_AF_1);
-	led_matrix_blank();
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource13, GPIO_AF_1);
 	GPIO_StructInit(&gpio);
-	GPIO_ResetBits(LED_LIGHT_PORT, LED_LIGHT_PIN);
-	gpio.GPIO_Pin=LED_COM1_PIN | LED_COM2_PIN | LED_COM3_PIN | LED_LIGHT_PIN;
-	gpio.GPIO_Mode=GPIO_Mode_Out_PP;
+	gpio.GPIO_Pin=LED_COM1_PIN | LED_COM2_PIN | LED_COM3_PIN | LED_ROW2_PIN;
+	gpio.GPIO_Mode=GPIO_Mode_FLOATING;
 	gpio.GPIO_Speed=GPIO_Speed_High;
 	GPIO_Init(GPIOA, &gpio);
-	gpio.GPIO_Pin=LED_COM4_PIN;
+	gpio.GPIO_Pin=LED_COM4_PIN | LED_ROW1_PIN;
 	GPIO_Init(GPIOB, &gpio);
-	led_inputs_prepare();
+	GPIO_ResetBits(LED_LIGHT_PORT, LED_LIGHT_PIN);
+	gpio.GPIO_Pin=LED_LIGHT_PIN;
+	gpio.GPIO_Mode=GPIO_Mode_Out_PP;
+	GPIO_Init(LED_LIGHT_PORT, &gpio);
 	ledData.Word=0;
 	led_scan_index=0;
 	user_list.led_input_valid=0;
@@ -48,37 +73,64 @@ void led_init(void)
 	user_list.Dir_Data=1;
 }
 
-/* TIM1每个PWM周期调用：7个点灯槽+输入准备槽+输入采样槽。
- * PWM=16kHz时，输入上拉稳定62.5us；整轮562.5us，不占用ADC引脚。 */
+/* 参考6灯12槽扩展为7灯13槽：点灯1..7、全高阻8..11、输入准备12、采样13。
+ * PWM=16kHz时，高阻250us、上拉稳定62.5us、整轮812.5us；新板ADC不共用灯脚。 */
 void LED_Scan(void)
 {
 	uint8_t col;
 	if(!user_list.led_scan_start_flag)
 	{
-		led_matrix_blank();
-		led_inputs_prepare();
+		/* 与参考一样不操作GPIO，保留上电时尚未接管的SWD引脚。 */
 		led_scan_index=0;
 		user_list.led_input_valid=0;
 		return;
 	}
-	if(++led_scan_index>9)
+	if(++led_scan_index>13)
 	{
 		led_scan_index=1;
 	}
-	if(led_scan_index==9)
+	if(led_scan_index==13)
 	{
 		user_list.Dir_Data=GPIO_ReadInputDataBit(DIR_PORT, DIR_PIN);
 		user_list.Key_Data=GPIO_ReadInputDataBit(KEY_PORT, KEY_PIN);
 		user_list.led_input_valid=1;
+		if(user_list.user_state==TOOL_POWER_DOWN)
+		{
+			led_matrix_release();
+		}
+		else
+		{
+			/* 参考采样后行输出低电平，下一点灯槽再先关闭行输出。 */
+			MODIFY_REG(GPIOB->CRH, GPIO_CRH_CNF8, 0);
+			MODIFY_REG(GPIOA->CRH, GPIO_CRH_CNF14, 0);
+			GPIO_ResetBits(GPIOB, LED_ROW1_PIN);
+			GPIO_ResetBits(GPIOA, LED_ROW2_PIN);
+			MODIFY_REG(GPIOB->CRH, GPIO_CRH_MODE8, 1u << GPIO_CRH_MODE8_Pos);
+			MODIFY_REG(GPIOA->CRH, GPIO_CRH_MODE14, 1u << GPIO_CRH_MODE14_Pos);
+		}
 		return;
 	}
-	led_matrix_blank();
 	if(led_scan_index==8)
+	{
+		led_matrix_release();
+		return;
+	}
+	if(led_scan_index<=11 && led_scan_index>=9)
+	{
+		return;
+	}
+	if(led_scan_index==12)
 	{
 		led_inputs_prepare();
 		return;
 	}
-	if(user_list.user_state==TOOL_POWER_DOWN || !(ledData.Word & (1u<<led_scan_index)))
+	if(user_list.user_state==TOOL_POWER_DOWN)
+	{
+		led_matrix_release();
+		return;
+	}
+	led_matrix_blank();
+	if(!(ledData.Word & (1u<<led_scan_index)))
 	{
 		return;
 	}

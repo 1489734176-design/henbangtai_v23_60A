@@ -114,6 +114,50 @@ u8 key_scan(void)
 
 
 }
+void Bsp_Op_Init(void) {}
+void Bsp_Comp_Init(void) {}
+void Bsp_Adc_Init(void) {}
+void Bsp_Pwm_Init(void) {}
+void Bsp_Key_Init(void)
+{
+    GPIO_InitTypeDef gpio;
+    RCC_AHBPeriphClockCmd(KEY_RCC_CLOCKGPIO, ENABLE);
+    GPIO_PinAFConfig(KEY_PORT, KEY_PIN_SRC, KEY_PIN_AF);
+    GPIO_StructInit(&gpio);
+    gpio.GPIO_Pin = KEY_PIN;
+    gpio.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(KEY_PORT, &gpio);
+}
+void Bsp_dir_init(void)
+{
+    GPIO_InitTypeDef GPIO_InitStructure;
+    GPIO_StructInit(&GPIO_InitStructure);
+
+
+
+	/* LED Clock Enable */
+    RCC_AHBPeriphClockCmd(DIR_RCC_CLOCKGPIO, ENABLE);		// OK
+//	GPIO_PinAFConfig(GPIOA, GPIO_PinSource13, GPIO_AF_1);
+	/*Configure GPIO pin : LED_Pin */
+	GPIO_InitStructure.GPIO_Pin     =  DIR_PIN;
+    GPIO_InitStructure.GPIO_Speed   = GPIO_Speed_High;
+    GPIO_InitStructure.GPIO_Mode    = GPIO_Mode_IPU;
+    GPIO_Init(DIR_PORT, &GPIO_InitStructure);
+
+
+}
+void Bsp_Gpio_Init(void)
+{
+    Bsp_Op_Init();
+		Bsp_Comp_Init();
+    Bsp_Adc_Init();
+		Bsp_Pwm_Init();
+//		led_init();
+
+//		Bsp_LED_Init();
+//		LED1_ON();
+		/* DIR/KEY共享灯脚由校准后的led_init接管，先保留PA14的SWD启动窗口。 */
+}
 uint8_t Bat_Com_CanRun(void)
 {
 #if BAT_COM_EN

@@ -47,13 +47,15 @@ manifest={
     'flash_range':[hex(min(memory)),hex(max(memory)+1)],
     'bytes':len(binary),
     'hardware_tested':False,
-    'tests':['seven_led: 7 cases, 122249 checks; 4 cold-start SOC profiles, 5 checks','battery_com: 12 cases, 220 checks (BAT_COM_EN=1 test build only)'],
+    'tests':['seven_led: 8 cases, 122386 checks; 4 cold-start SOC profiles, 5 checks; SWD startup profile, 7 checks','battery_com: 12 cases, 220 checks (BAT_COM_EN=1 test build only)'],
     'firmware_sha256':{p.name:sha(p) for p in dest.glob('SPIN0230_DEMO.*')},
     'source_sha256':{p.relative_to(root).as_posix():sha(p) for p in source_files},
     'notes':['DS/TBAT reserved; battery communication and battery-temperature detection disabled.',
              'Trigger powers the board: first stable direction confirmation permits the initial press; subsequent direction changes still require release.',
              'SOC is initialized on first display, including an immediate motor run; running voltage sag does not change the displayed level.',
              'Removed separate 10s/30s illumination timers: matrix and PA12 illumination turn off together at the reference 5s sleep timeout after trigger release. Held faults keep displaying without a 30s cutoff.',
+             'Reference scan sequencing: 7 LED slots, 4 fully high-impedance slots, input preparation and sampling = 13 slots. Matrix starts floating; PA14 GPIO remap is deferred until after startup calibration.',
+             'The reference also remaps PA13/PA14 away from SWD AF0. High impedance does not restore AF0; reprogramming requires MCU reset and timely programmer connection. LCD_ALL_PRGMR continuous programming is not bench-verified.',
              'LED7 has a scan slot; automatic display defaults off pending its intended use.',
              'See docs/seven-led-board.md for IO, alarm mapping and required bench checks.']
 }

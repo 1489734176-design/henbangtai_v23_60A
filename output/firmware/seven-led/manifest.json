@@ -5,27 +5,27 @@
   "build_result": "0 errors, 0 warnings",
   "flash_range": [
     "0x8000000",
-    "0x8004ac0"
+    "0x8004b58"
   ],
-  "bytes": 19136,
+  "bytes": 19288,
   "hardware_tested": false,
   "tests": [
-    "seven_led: 7 cases, 122249 checks; 4 cold-start SOC profiles, 5 checks",
+    "seven_led: 8 cases, 122386 checks; 4 cold-start SOC profiles, 5 checks; SWD startup profile, 7 checks",
     "battery_com: 12 cases, 220 checks (BAT_COM_EN=1 test build only)"
   ],
   "firmware_sha256": {
-    "SPIN0230_DEMO.axf": "df1063b44a97f67cbfe7f698fb7142644a062ac9e19f3e157eb83c0e72a17f81",
-    "SPIN0230_DEMO.bin": "3ae7df5f5193e0b58faab729f2ad68d770399a65ea104c3e421ea8ad97e35d10",
-    "SPIN0230_DEMO.hex": "ca37cde718393599efe8a098eae807bcf5031473f04b98572636772989048aa7"
+    "SPIN0230_DEMO.axf": "c341c133a14ac8af070717579036c4226fc77258cefb8e0b17c456975e345793",
+    "SPIN0230_DEMO.bin": "040ea814c32b2be03eaa2d6773b8b6f536057a10217a8589b672ef47f83f9429",
+    "SPIN0230_DEMO.hex": "0b966542af4dac639d525bbd08a0743972bf89ab9348bdc91ec4e68cf3da3c46"
   },
   "source_sha256": {
     "USER/Bat_com.c": "7806e85fe400bec714e437db5a6e4d658e57bcf17508f7aa0cdf01c7ce885335",
-    "USER/board.c": "ddb64f87f516a1539479bfa1da265190f0fd78d4e94496d08d46a854156c0bef",
+    "USER/board.c": "b9f0f6a7aa123cf7da1b74c6f04601f05830b9bd25149cfd153b749a84320432",
     "USER/flash_data_save.c": "25a8ec39276316a5a751efcd34118d317027ff118920829da90c9524d4425353",
-    "USER/led.c": "f3485d06b80f29a449cf5e7897266887762d3338a673a12fa459b109db0eb18d",
+    "USER/led.c": "7b75c342532c3be47fe0581468b57c3bc570730e4d09c4c79274a1a1fde5d415",
     "USER/main.c": "1d3e755644a9f597710d4d60a612b4b564e379ea6139025c56ac8451d7cccaa8",
     "USER/mm32_it.c": "a03f82bf51548c32d86a52f63e3f399a449f2f5cd1e711d9d2e25e8394bad526",
-    "USER/user_control.c": "6310bcd4b21957a375b393faf62b08d1d3cb6a46407e6ba424a3d19ca8cb142d",
+    "USER/user_control.c": "04a0f943a77df49c2b81c77bf7082a810da9070d0499aad49ff2b2ffbc9b82c0",
     "USER/user_function.c": "a25a4dcc6dee1d4a584f213eb1ec16b443eba1623cc528fb3ed94faba7bc227d",
     "USER/inc/Bat_com.h": "594789e4e39297cec9f6b59f4ce3df5b2a0d369e075f7d9b6b018f29e7394899",
     "USER/inc/board.h": "0b69dfa2f8fcc5ffbe0d8ac422be8a738458b244c1620914420e681af5665451",
@@ -34,7 +34,7 @@
     "USER/inc/led.h": "86c11ad50c8ccbba8bc43ef7ef05bf0ed170d7b0981db6b4458c1155e24d58d5",
     "USER/inc/main.h": "3fff458b3de30e73f1957503b179372a5c9d9bd2bd7ed891c4e979bf340b68c2",
     "USER/inc/mm32_it.h": "8fb981c500a08c94831a45865e7c3b11e6cb465ba920a16166e88e424379aec4",
-    "USER/inc/parameter.h": "55f2a7fd5e9219a9cb00f42e766139a44c420c091a03583da2be8a71190c4b95",
+    "USER/inc/parameter.h": "96d64ce6259eb44f5de1be5a43b9c36b436c0393c4c2b1e25fe704ef4e425384",
     "USER/inc/user_control.h": "a3effab3bb0f55afb101d452cad685f58aedb1d71c6e13cd4558bacfff2bbcca",
     "USER/inc/user_function.h": "4bfb0013c3c5cb0f8b6cad5337f66ad077b7024cbe6722233ca929c356efc6c5",
     "MOTOR_CONTROL/motor_control.c": "6d12733aa1dacc821a3da01bb62754e901cfb4493293bbbf089e931c7ad4ad20",
@@ -47,6 +47,8 @@
     "Trigger powers the board: first stable direction confirmation permits the initial press; subsequent direction changes still require release.",
     "SOC is initialized on first display, including an immediate motor run; running voltage sag does not change the displayed level.",
     "Removed separate 10s/30s illumination timers: matrix and PA12 illumination turn off together at the reference 5s sleep timeout after trigger release. Held faults keep displaying without a 30s cutoff.",
+    "Reference scan sequencing: 7 LED slots, 4 fully high-impedance slots, input preparation and sampling = 13 slots. Matrix starts floating; PA14 GPIO remap is deferred until after startup calibration.",
+    "The reference also remaps PA13/PA14 away from SWD AF0. High impedance does not restore AF0; reprogramming requires MCU reset and timely programmer connection. LCD_ALL_PRGMR continuous programming is not bench-verified.",
     "LED7 has a scan slot; automatic display defaults off pending its intended use.",
     "See docs/seven-led-board.md for IO, alarm mapping and required bench checks."
   ]

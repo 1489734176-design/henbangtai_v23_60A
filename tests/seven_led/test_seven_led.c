@@ -53,9 +53,9 @@ static void test_matrix_and_sampling(void)
 		ledData.Word=1u<<led;
 		GPIOA->IDR=0xffff;
 		GPIOB->IDR=0xffff;
-		for(slot=1; slot<=9; slot++)
+		for(slot=1; slot<=13; slot++)
 		{
-			if(slot==9) { GPIOA->IDR=0; GPIOB->IDR=0; }
+			if(slot==13) { GPIOA->IDR=0; GPIOB->IDR=0; }
 			LED_Scan();
 			CHECK(GPIOA->ODR & GPIO_Pin_11);
 			if(slot<=7)
@@ -75,12 +75,27 @@ static void test_matrix_and_sampling(void)
 					CHECK((GPIOA->ODR & 0x2401)==0x2401 && (GPIOB->ODR & 0x200));
 				}
 			}
-			else
+			else if(slot<=11)
+			{
+				/* 参考4槽全高阻：PA13/SWDIO也必须停止驱动。 */
+				CHECK((GPIOA->CRH & (GPIO_CRH_MODE13 | GPIO_CRH_CNF13 |
+					GPIO_CRH_MODE14 | GPIO_CRH_CNF14 | GPIO_CRH_MODE10 | GPIO_CRH_CNF10))==0);
+				CHECK((GPIOA->CRL & 0xf)==0 && (GPIOB->CRH & 0xff)==0);
+			}
+			else if(slot==12)
 			{
 				CHECK((GPIOB->CRH & 0xf)==8 && ((GPIOA->CRH>>24) & 0xf)==8);
+				CHECK(((GPIOA->CRH>>20) & 0xf)==1 && ((GPIOA->CRH>>8) & 0xf)==1);
+				CHECK((GPIOA->CRL & 0xf)==1 && ((GPIOB->CRH>>4) & 0xf)==1);
 				CHECK((GPIOA->ODR & 0x2401)==0x2401 && (GPIOB->ODR & 0x200));
 			}
-			if(slot<9) CHECK(!user_list.led_input_valid && user_list.Dir_Data==1 && user_list.Key_Data==1);
+			else
+			{
+				/* 采样完按参考把两行改回推挽低电平，随后开始下一轮。 */
+				CHECK((GPIOB->CRH & 0xf)==1 && ((GPIOA->CRH>>24) & 0xf)==1);
+				CHECK(!(GPIOB->ODR & LED_ROW1_PIN) && !(GPIOA->ODR & LED_ROW2_PIN));
+			}
+			if(slot<13) CHECK(!user_list.led_input_valid && user_list.Dir_Data==1 && user_list.Key_Data==1);
 		}
 		CHECK(user_list.led_input_valid && !user_list.Dir_Data && !user_list.Key_Data);
 	}
@@ -91,12 +106,34 @@ static void test_matrix_and_sampling(void)
 	user_list.led_scan_start_flag=1;
 	user_list.user_state=TOOL_POWER_DOWN;
 	ledData.Word=0xfe;
-	for(slot=0; slot<9; slot++)
+	for(slot=0; slot<13; slot++)
 	{
 		LED_Scan();
 		CHECK(!(GPIOA->CRH & GPIO_CRH_MODE14) && !(GPIOB->CRH & GPIO_CRH_MODE8));
 	}
 	CHECK(user_list.led_input_valid);
+}
+
+static void test_swd_startup_not_remapped_early(void)
+{
+	uint32_t mode_a, mode_b;
+	memset(&user_list, 0, sizeof(user_list));
+	/* vendor GPIO_AFIODeInit: PA13/PA14的复位复用为AF0/SWD。 */
+	GPIOA->AFRH=0xf00fffff;
+	GPIOA->CRH=0x44444444;
+	GPIOB->CRH=0x44444444;
+	Bsp_Gpio_Init(); /* PWM/ADC等无关外设由测试桩隔离，共享输入函数是真实GPIO代码。 */
+	CHECK((GPIOA->AFRH & 0x0ff00000)==0);
+	CHECK(((GPIOA->CRH>>20) & 0xff)==0x44);
+	mode_a=GPIOA->CRH;
+	mode_b=GPIOB->CRH;
+	LED_Scan(); /* 参考未启动扫描直接返回，不能提前驱动烧录口。 */
+	CHECK(GPIOA->CRH==mode_a && GPIOB->CRH==mode_b);
+	CHECK((GPIOA->AFRH & 0x0ff00000)==0);
+	led_init(); /* 在main原有100ms校准窗口之后才调用。 */
+	CHECK((GPIOA->AFRH & 0x0ff00000)==0x01100000);
+	CHECK(((GPIOA->CRH>>20) & 0xff)==0x44); /* 参考初始化为浮空，不提前推挽。 */
+	CHECK((GPIOB->CRH & 0xff)==0x44);
 }
 
 static void test_direction_and_key(void)
@@ -316,6 +353,12 @@ static void test_fault_hold_and_release_sleep(void)
 
 uint32_t run_tests(void)
 {
+	if(test_boot_scenario==5)
+	{
+		test_case=8;
+		test_swd_startup_not_remapped_early();
+		return test_failure_line;
+	}
 	if(test_boot_scenario)
 	{
 		test_case=1;
@@ -342,5 +385,8 @@ uint32_t run_tests(void)
 	if(test_failure_line) return test_failure_line;
 	test_case=7;
 	test_fault_hold_and_release_sleep();
+	if(test_failure_line) return test_failure_line;
+	test_case=8;
+	test_swd_startup_not_remapped_early();
 	return test_failure_line;
 }
