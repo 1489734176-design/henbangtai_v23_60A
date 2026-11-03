@@ -1,0 +1,55 @@
+42V 
+ V2.0  20201224
+
+
+ 42V   COM  COM  
+  25bits  16bits  
+
+ COM COM   0.5V 1.8V
+ 1 400 uS  + 200 uS   0 200 uS  + 200 uS   200mS / 1mS~2mS  
+
+1START_BIT:800us +200us  800US ±20% 640  960 200US ±20%
+2 1400 uS  + 200 uS  400US ±20% 320  480
+3 0200 uS  + 200 uS  200US ±20% 160  240
+4     START_BIT    +   COM_PACK_BATE1(    )+   COM_PACK_BATE2(  )+   COM_PACK_BYTE3() COM_PACK_BYTE3()=unsigned char(COM_PACK_BATE1+COM_PACK_BATE2) 5 COM_TOOLS_BATE1()+  COM_TOOLS_BYTE2()
+=~COM_TOOLS_BYTE1() 6 COM_CHARGER_BATE1()+  COM_CHARGER_BYTE2()
+=~COM_CHARGER_BYTE1()  
+
+
+/ 1mS  2mS  
+
+
+
+
+
+
+
+
+5.1 COM  
+1  COM  1000mS  00H 
+
+  00H A1H
+ 01H byte2  10  0A  A1H
+ 02H byte2  1500mAh  15 0x0F,2000mAh  200x10,2500mAh  250x19,10x01 100mAh
+ A1H 00H 
+2  03H byte2   CV  300mA AFH A1H
+ 04H  A1H30  COM  5V COM 
+ 20H A0H  COM  5V COM 
+ 0FH  AFH COM  5V COM 
+ 300MA AFH  1  150MA
+ 150MA COM 
+ 00H 
+ 4   4 
+5.2 COM  
+1
+
+ COM  3S   3S  
+  00H B1H  01H  byte2  B1H       02H                 byte2           1500mAh   15 0x0F,2000mAh  200x10,2500mAh  250x19,10x01 100mAh 
+ B1H 00H 
+  03H  B1H  40H  B1H  10H  B1H  3S 
+
+ COM   / COM 
+ 
+
+
+
