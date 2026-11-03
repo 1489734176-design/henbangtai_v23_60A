@@ -133,25 +133,25 @@
 #define IBus_Avg_REC_MS               (200) //ms
 #define IBus_Avg_REC_MS_CONUT         (u16)((float)IBus_Avg_REC_MS*SLOWLOOP_FRE/1000.0f) 
 
-#define IBus_Avg_OCP1                (30.0f)
+#define IBus_Avg_OCP1                (65.0f)
 #define IBus_Avg_OCP1_AdcValue         (u16)(IBus_Avg_OCP1*CURRENT_ADC_PER_A)
 
-#define IBus_Avg_OCP1_MS               (3000) //ms
+#define IBus_Avg_OCP1_MS               (2000) //ms
 #define IBus_Avg_OCP1_MS_CONUT         (u16)((float)IBus_Avg_OCP1_MS*SLOWLOOP_FRE/1000.0f) 
 	
-#define IBus_Avg_OCP2                 (55.0f)
+#define IBus_Avg_OCP2                 (80.0f)
 #define IBus_Avg_OCP2_AdcValue         (u16)(IBus_Avg_OCP2*CURRENT_ADC_PER_A)
 
 #define IBus_Avg_OCP2_MS               (500) //ms
 #define IBus_Avg_OCP2_MS_CONUT        (u16)((float)IBus_Avg_OCP2_MS*SLOWLOOP_FRE/1000.0f) 
 
-#define IBus_Avg_OCP3                  (68.0f)
+#define IBus_Avg_OCP3                  (90.0f)
 #define IBus_Avg_OCP3_AdcValue         (u16)(IBus_Avg_OCP3*CURRENT_ADC_PER_A)
 
 #define IBus_Avg_OCP3_MS               (80) //ms
 #define IBus_Avg_OCP3_MS_CONUT        (u16)((float)IBus_Avg_OCP3_MS*SLOWLOOP_FRE/1000.0f)
 
-#define IBus_Avg_OCP4                  (80.0f)
+#define IBus_Avg_OCP4                  (100.0f)
 #define IBus_Avg_OCP4_AdcValue         (u16)(IBus_Avg_OCP4*CURRENT_ADC_PER_A)
 
 #define IBus_Avg_OCP4_MS               (5) //ms
@@ -170,21 +170,21 @@
 //此处堵转时间注意根据实际情况调整
 #define Block_Protect_RUNING_TIME                     (100*SLOWLOOP_1ms_CNT_LOAD)/*堵转时间unit:ms*/
 
-#define Block_Protect_Current1                      (40.00)/*unit:a*/
+#define Block_Protect_Current1                      (60.00)/*unit:a*/
 #define Block_Protect_Current1_AdcValue             (u16)(Block_Protect_Current1*CURRENT_ADC_PER_A)
 #define Block_Protect_Current1_TIME                 (80*SLOWLOOP_1ms_CNT_LOAD)/*堵转时间unit:ms*/
 
 
-#define Block_Protect_Current2                      (55.00)/*unit:a*/
+#define Block_Protect_Current2                      (70.00)/*unit:a*/
 #define Block_Protect_Current2_AdcValue             (u16)(Block_Protect_Current2*CURRENT_ADC_PER_A)
 #define Block_Protect_Current2_TIME                 (50*SLOWLOOP_1ms_CNT_LOAD)/*堵转时间unit:ms*/
 
 
-#define Block_Protect_Current3                      (65.00)/*unit:a*/
+#define Block_Protect_Current3                      (80.00)/*unit:a*/
 #define Block_Protect_Current3_AdcValue             (u16)(Block_Protect_Current3*CURRENT_ADC_PER_A)
 #define Block_Protect_Current3_TIME                 (30*SLOWLOOP_1ms_CNT_LOAD)/*堵转时间unit:ms*/
 
-#define Block_Protect_Current4                      (80.00)/*unit:a*/
+#define Block_Protect_Current4                      (90.00)/*unit:a*/
 #define Block_Protect_Current4_AdcValue             (u16)(Block_Protect_Current4*CURRENT_ADC_PER_A)
 #define Block_Protect_Current4_TIME                 (10*SLOWLOOP_1ms_CNT_LOAD)/*堵转时间unit:ms*/
 
@@ -207,17 +207,17 @@
 
 
 
-	#define IBus_Smart_Peak_OCP1                      (60.00)/*unit:a*/
+	#define IBus_Smart_Peak_OCP1                      (80.00)/*unit:a*/
 	#define IBus_Smart_Peak_OCP1_AdcValue             (u16)(IBus_Smart_Peak_OCP1*CURRENT_ADC_PER_A)
 	#define IBus_Smart_Peak_OCP1_MS                   (800) //ms
 	#define IBus_Smart_OCP1_MS_Operation_Value        (u16)(32768.0f/((float)IBus_Smart_Peak_OCP1_MS*SLOWLOOP_FRE/1000.0f))
 
-	#define IBus_Smart_Peak_OCP2                      (70.00)/*unit:a*/
+	#define IBus_Smart_Peak_OCP2                      (90.00)/*unit:a*/
 	#define IBus_Smart_Peak_OCP2_AdcValue             (u16)(IBus_Smart_Peak_OCP2*CURRENT_ADC_PER_A)
 	#define IBus_Smart_Peak_OCP2_MS                   (100) //ms
 	#define IBus_Smart_OCP2_MS_Operation_Value        (u16)(32768.0f/((float)IBus_Smart_Peak_OCP2_MS*SLOWLOOP_FRE/1000.0f))
 		
-	#define IBus_Smart_Peak_OCP3                      (80.00)/*unit:a*/
+	#define IBus_Smart_Peak_OCP3                      (100.00)/*unit:a*/
 	#define IBus_Smart_Peak_OCP3_AdcValue             (u16)(IBus_Smart_Peak_OCP3*CURRENT_ADC_PER_A)
 	#define IBus_Smart_Peak_OCP3_MS                   (10) //ms
 	#define IBus_Smart_OCP3_MS_Operation_Value        (u16)(32768.0f/((float)IBus_Smart_Peak_OCP3_MS*SLOWLOOP_FRE/1000.0f))
@@ -248,14 +248,14 @@
 #endif
 
 
-#define IBus_Peak_IT_OCP               (100.0f)  //峰值保护，单次超过触发
+#define IBus_Peak_IT_OCP               (150.0f)  //峰值保护，单次超过触发
 #define IBus_Peak_IT_OCP_AdcValue      (u16)(IBus_Peak_IT_OCP*CURRENT_ADC_PER_A)
 #define IBus_Peak_IT_COUNT     				 (u16)(PWMFREQ/1000)//PWMFREQ/1000=1MS
 
 #define IBus_Peak_OCP_ONCE_EN              (1)
-#define IBus_Peak_OCP_ONCE               (105.0f)  //峰值保护，单次超过触发
+#define IBus_Peak_OCP_ONCE               (150.0f)  //峰值保护，单次超过触发
 #define IBus_Peak_OCP_ONCE_AdcValue      (u16)(IBus_Peak_OCP_ONCE*CURRENT_ADC_PER_A)
-#define IBus_IPD_OCP               (105.0f)  //峰值保护，单次超过触发
+#define IBus_IPD_OCP               (150.0f)  //峰值保护，单次超过触发
 #define IBus_IPD_OCP_AdcValue      (u16)(IBus_IPD_OCP*CURRENT_ADC_PER_A)
 
 
@@ -405,7 +405,7 @@
 
 #define Tool_Dir_CW_Value                                       (0)/*顺时针方向值*/
 #define Tool_Dir_CCW_Value                                      (1)/*逆时针方向值*/
-#define Tool_Dir_Init                                         (0 )/*逆时针方向值*/
+#define Tool_Dir_Init                                         (0 )/*顺时针方向值*/
 
 
 
