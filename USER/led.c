@@ -397,15 +397,31 @@ void LedSoc_Run(uint32_t volt_vx100,uint8_t display_en,uint8_t fast_mode)
 	//10次滤波增加稳定性
 	ms500cnt++;
 
-	// 需要更新SOC或快速刷新模式
-	if(user_led_control.gSocUpdate||fast_mode)
+	/* 扳机上电后可能直接进入运行，首次电量不能等待停机刷新。
+	   用当前电压直接初始化等级；后续仍按参考的停机更新/滞回规则处理。 */
+	if(PackSocStatus == 0)
 	{
-		// 首次进入默认从SOC1开始
-		if(PackSocStatus == 0)
+		if(volt_vx100 > SOC3_MV)
+		{
+			PackSocStatus = 4;
+		}
+		else if(volt_vx100 > SOC2_MV)
+		{
+			PackSocStatus = 3;
+		}
+		else if(volt_vx100 > SOC1_MV)
+		{
+			PackSocStatus = 2;
+		}
+		else
 		{
 			PackSocStatus = 1;
 		}
+	}
 
+	// 需要更新SOC或快速刷新模式
+	if(user_led_control.gSocUpdate||fast_mode)
+	{
 		// 滞回比较状态机，根据电压判断SOC等级
 		switch(PackSocStatus)
 		{

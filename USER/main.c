@@ -156,7 +156,7 @@ int main(void)
 	user_list.led_reuse_adc_flag=0;
 	user_list.led_scan_start_flag=1;
 	systick_delay_us(5000);//等待ADC稳定
-	/* 先确认扳机状态，防止初始gToolTrigger=0提前解除上电重扣锁定。 */
+	/* 先滤波上电扳机；首次方向确认允许当前扣动启动，后续换向仍需松手。 */
 	for(i=0;i<30;i++)
 	{
 		systick_delay_us(1000);

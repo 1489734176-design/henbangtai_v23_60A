@@ -35,8 +35,10 @@ def main():
         command += ['-I', str(ROOT / path)]
     subprocess.run(command, check=True, cwd=ROOT)
     execute(image)
+    for scenario in range(1, 5):
+        execute(image, scenario)
 
-def execute(image):
+def execute(image, boot_scenario=0):
     import struct
     sys.path.insert(0, str(ROOT / '.tmp_protocol/test_deps'))
     from elftools.elf.elffile import ELFFile
@@ -61,6 +63,8 @@ def execute(image):
             if segment['p_type'] == 'PT_LOAD' and segment['p_filesz']:
                 uc.mem_write(segment['p_vaddr'], segment.data())
         symbols = {s.name: s['st_value'] for s in elf.get_section_by_name('.symtab').iter_symbols()}
+    if boot_scenario:
+        uc.mem_write(symbols['test_boot_scenario'], struct.pack('<I', boot_scenario))
     stop = 0x080f0000
     uc.reg_write(UC_ARM_REG_SP, 0x200ffff0)
     uc.reg_write(UC_ARM_REG_LR, stop | 1)
@@ -71,7 +75,8 @@ def execute(image):
     line, case, checks = map(word, ['test_failure_line', 'test_case', 'test_checks'])
     if line:
         raise AssertionError(f'case {case}, test_seven_led.c:{line}, after {checks} checks')
-    print(f'PASS: {case} cases, {checks} checks (ARM C / simulated GPIO, not a bench test)')
+    label = f'SOC boot profile {boot_scenario}' if boot_scenario else f'{case} cases'
+    print(f'PASS: {label}, {checks} checks (ARM C / simulated GPIO, not a bench test)')
 
 if __name__ == '__main__':
     main()

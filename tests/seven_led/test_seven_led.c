@@ -1,6 +1,7 @@
 #include <string.h>
 
 volatile uint32_t test_failure_line, test_case, test_checks;
+volatile uint32_t test_boot_scenario;
 #define CHECK(x) do { test_checks++; if(!(x)) { test_failure_line = __LINE__; return; } } while(0)
 
 static void test_alarm_mapping(void)
@@ -112,7 +113,8 @@ static void test_direction_and_key(void)
 	user_list.Dir_Data=0;
 	GPIOB->IDR=0xffff; /* 点灯阶段IDR与缓存相反，逻辑仍应读取缓存。 */
 	for(i=0;i<12;i++) user_direction_handle();
-	CHECK(!user_list.direction_ready && !user_list.dir_valid);
+	/* 正常按扳机上电：首次方向稳定后不应要求松手重扣。 */
+	CHECK(user_list.direction_ready && user_list.dir_valid && !user_list.dir_retrig_need);
 	user_list.flag.bits.gToolTrigger=0;
 	user_direction_handle();
 	CHECK(user_list.direction_ready && user_list.dir_valid && mc_core_list.mc_dir==0);
@@ -165,8 +167,69 @@ static void test_blink_cycle(void)
 	CHECK(rises==13 && user_led_control.LedRunTimes==9);
 }
 
+static void test_soc_immediate_run(void)
+{
+	unsigned i;
+	memset(&user_list, 0, sizeof(user_list));
+	memset(&machine_error_hold, 0, sizeof(machine_error_hold));
+	memset(&user_led_control, 0, sizeof(user_led_control));
+	led_init();
+	user_list.led_scan_start_flag=1;
+	user_list.user_state=TOOL_RUN;
+	user_list.flag.bits.gToolTrigger=1;
+	user_list.VBus_Vx100=2100;
+	UO_Led_Handler();
+	CHECK((ledData.Word & 0x0e)==0x0e); /* 未经过停机等待，首次运行也应亮三灯 */
+	LED_Scan();
+	CHECK(((GPIOA->CRH>>24) & 0xf)==1 && !(GPIOA->ODR & GPIO_Pin_13));
+	/* 保留负载压降期间电量灯稳定，避免简单删除运行状态门控。 */
+	user_list.VBus_Vx100=1500;
+	for(i=0;i<1000;i++)
+	{
+		UO_Led_Handler();
+		CHECK((ledData.Word & 0x0e)==0x0e);
+	}
+	user_list.user_state=TOOL_STOP;
+	user_list.flag.bits.gToolTrigger=0;
+	user_list.VBus_Vx100=1780;
+	for(i=0;i<100;i++) UO_Led_Handler();
+	CHECK((ledData.Word & 0x0e)==0x06); /* 松手后仍能更新为两灯 */
+	user_list.user_state=TOOL_RUN;
+	user_list.flag.bits.gToolTrigger=1;
+	machine_error_hold.MC_error_hold.bits.gBlock=1;
+	UO_Led_Handler();
+	CHECK((ledData.Word & 0x0e)==0 && user_led_control.LedRunCnt_Once==4);
+	for(i=0;i<500;i++) UO_Led_Handler();
+	CHECK((ledData.Word & 0x0e)==0x0e); /* 故障显示仍优先于电量 */
+}
+
+static void test_soc_boot_levels(void)
+{
+	/* 由运行器为每组新建CPU，确保都是上电时尚未初始化的SOC。 */
+	const uint16_t voltage[]={2100,1780,1680,1500};
+	const uint8_t lamps[]={0x0e,0x06,0x02,0};
+	unsigned i, index=test_boot_scenario-1;
+	led_init();
+	user_list.user_state=TOOL_RUN;
+	user_list.flag.bits.gToolTrigger=1;
+	user_list.VBus_Vx100=voltage[index];
+	UO_Led_Handler();
+	CHECK((ledData.Word & 0x0e)==lamps[index]);
+	if(index==3)
+	{
+		for(i=1;i<250;i++) UO_Led_Handler();
+		CHECK((ledData.Word & 0x0e)==0x02); /* 最低电量仍按参考程序闪第1灯 */
+	}
+}
+
 uint32_t run_tests(void)
 {
+	if(test_boot_scenario)
+	{
+		test_case=1;
+		test_soc_boot_levels();
+		return test_failure_line;
+	}
 	test_case=1;
 	test_alarm_mapping();
 	if(test_failure_line) return test_failure_line;
@@ -178,5 +241,8 @@ uint32_t run_tests(void)
 	if(test_failure_line) return test_failure_line;
 	test_case=4;
 	test_blink_cycle();
+	if(test_failure_line) return test_failure_line;
+	test_case=5;
+	test_soc_immediate_run();
 	return test_failure_line;
 }

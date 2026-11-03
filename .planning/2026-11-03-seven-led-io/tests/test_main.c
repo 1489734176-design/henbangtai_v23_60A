@@ -37,6 +37,22 @@ void user_direction_handle(void)
 	{
 		return;
 	}
+	/* 首次上电只是同步开关方向，不是运行换向；无需松开供电扳机。
+	   仍须采样有效、完成去抖且电机停止，所有故障许可由原状态机检查。 */
+	if(!user_list.direction_initialized)
+	{
+		if(motor_control_list.bldc_state==MOTOR_STOP &&
+		   !mc_core_list.motor_en && !user_list.flag.bits.gToolEn)
+		{
+			user_list.flag.bits.gToolDir=requested_dir;
+			mc_core_list.mc_dir=requested_dir;
+			user_list.direction_initialized=1;
+			user_list.dir_retrig_need=0;
+			user_list.dir_valid=1;
+			user_list.direction_ready=1;
+		}
+		return;
+	}
 	/* 运行中检测到换向先停机，保持原换相方向直到停稳并松开扳机。 */
 	if(requested_dir != mc_core_list.mc_dir)
 	{

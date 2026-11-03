@@ -187,6 +187,22 @@ void user_direction_handle(void)
 	{
 		return;
 	}
+	/* 首次上电只是同步开关方向，不是运行换向；无需松开供电扳机。
+	   仍须采样有效、完成去抖且电机停止，所有故障许可由原状态机检查。 */
+	if(!user_list.direction_initialized)
+	{
+		if(motor_control_list.bldc_state==MOTOR_STOP &&
+		   !mc_core_list.motor_en && !user_list.flag.bits.gToolEn)
+		{
+			user_list.flag.bits.gToolDir=requested_dir;
+			mc_core_list.mc_dir=requested_dir;
+			user_list.direction_initialized=1;
+			user_list.dir_retrig_need=0;
+			user_list.dir_valid=1;
+			user_list.direction_ready=1;
+		}
+		return;
+	}
 	/* 运行中检测到换向先停机，保持原换相方向直到停稳并松开扳机。 */
 	if(requested_dir != mc_core_list.mc_dir)
 	{
@@ -210,6 +226,91 @@ void user_direction_handle(void)
 	mc_core_list.mc_dir=requested_dir;
 	user_list.dir_valid=1;
 	user_list.direction_ready=1;
+}
+
+void user_para_init(void)
+{
+	user_list.userErr.word=0;
+	user_list.user_state=TOOL_STOP;
+		user_list.flag.bits.gToolDir= Tool_Dir_Init;
+	/* 扳机为上电来源：首次稳定方向确认后允许本次扣动启动。 */
+	user_list.direction_initialized=0;
+	user_list.dir_valid=0;
+	user_list.dir_retrig_need=1;
+
+}
+
+void motor_on_off_control(void)
+{
+	static 	u8 gToolTrigger_off_count=0;
+	static 	u8 gToolTrigger_on_count=0;
+//		user_list.flag.bits.gToolTrigger=1;
+	#if(TRG_DIGITAL_EN)
+		/* SPEED 外部下拉，按键闭合接入高电平。 */
+		if(GPIO_ReadInputDataBit(VR_PORT, VR_PIN) == Bit_RESET)
+		{
+			gToolTrigger_off_count++;
+			gToolTrigger_on_count=0;
+			if(gToolTrigger_off_count>20)
+			{
+				user_list.flag.bits.gToolTrigger=0;
+			}
+		}
+		else
+		{
+			gToolTrigger_off_count=0;
+			gToolTrigger_on_count++;
+			if(gToolTrigger_on_count>20)
+			{
+				user_list.flag.bits.gToolTrigger=1;
+			}
+		}
+	#else
+		/* ADC 模式：VR 电压与阈值比较 */
+		if(mc_core_list.Board_ADC_DATA.u16VR < (TRG_ON_ADC - 100))
+		{
+			gToolTrigger_off_count++;
+			gToolTrigger_on_count=0;
+			if(gToolTrigger_off_count>20)
+			{
+				user_list.flag.bits.gToolTrigger=0;
+			}
+		}
+		if(mc_core_list.Board_ADC_DATA.u16VR >= TRG_ON_ADC)
+		{
+			gToolTrigger_off_count=0;
+			gToolTrigger_on_count++;
+			if(gToolTrigger_on_count>20)
+			{
+				user_list.flag.bits.gToolTrigger=1;
+			}
+		}
+	#endif
+	
+	
+	#if 0
+		if(GPIO_ReadInputDataBit(DIR_PORT,DIR_PIN)==1) 
+	{
+		gToolTrigger_off_count++;
+		gToolTrigger_on_count=0;
+		if(gToolTrigger_off_count>10)
+		{
+			user_list.flag.bits.gToolTrigger=0;
+		}
+	
+	}
+	if(GPIO_ReadInputDataBit(DIR_PORT,DIR_PIN)==0) 
+	{
+				gToolTrigger_off_count=0;
+	   	gToolTrigger_on_count++;
+			if(gToolTrigger_on_count>10)
+			{
+			user_list.flag.bits.gToolTrigger=1;
+			}
+	}
+	
+	#endif
+
 }
 
 void MC_Machine_State(void)

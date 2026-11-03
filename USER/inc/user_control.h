@@ -106,6 +106,7 @@ typedef struct
 	uint8_t 	gears_level_changed; // 挡位变化标志
 	uint16_t 	dir_level_changed_count;
 	uint8_t		direction_ready;
+	uint8_t		direction_initialized; // 首次上电方向已确认，与运行换向锁定分开
 	uint8_t		dir_valid;        // 方向已稳定确认，单线DIRCTION输入
 	uint8_t		dir_retrig_need;  // 需重新扣动电位器才能启动：松开电位器后清除
 } User_list_Struct;

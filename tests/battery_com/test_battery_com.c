@@ -510,6 +510,8 @@ static void test_direction_interlock(void)
     reset_fixture();
     link_safe();
     CHECK(Bat_Com_CanRun());
+    /* 先完成首次方向确认，再验证运行期间采样失效的松手联锁。 */
+    for(i=0;i<12;i++) user_direction_handle();
     user_list.led_input_valid=0;
     for(i=0;i<12;i++) user_direction_handle();
     CHECK(!user_list.dir_valid && !user_list.direction_ready);
@@ -561,6 +563,46 @@ static void test_direction_interlock(void)
     CHECK(user_list.user_state==TOOL_RUN && user_list.flag.bits.gToolEn);
 }
 
+static void test_trigger_power_on(void)
+{
+    uint8_t direction, i;
+    for(direction=0;direction<2;direction++)
+    {
+        reset_fixture();
+        link_safe();
+        user_para_init();
+        /* 将静态扳机滤波器恢复到松开状态，再模拟实际30ms上电采样。 */
+        mc_core_list.Board_ADC_DATA.u16VR=0;
+        for(i=0;i<30;i++) motor_on_off_control();
+        mc_core_list.Board_ADC_DATA.u16VR=1200;
+        for(i=0;i<30;i++) motor_on_off_control();
+        CHECK(user_list.flag.bits.gToolTrigger);
+        user_list.led_input_valid=0;
+        user_direction_handle();
+        user_state_control();
+        run_main_enable_ipd();
+        CHECK(!mc_core_list.motor_en);
+        user_list.led_input_valid=1;
+        user_list.Dir_Data=direction;
+        for(i=0;i<9;i++) user_direction_handle();
+        CHECK(!user_list.direction_ready && !mc_core_list.motor_en);
+        user_direction_handle();
+        CHECK(user_list.direction_ready && user_list.dir_valid && !user_list.dir_retrig_need);
+        CHECK(mc_core_list.mc_dir==direction);
+        user_state_control();
+        run_main_enable_ipd();
+        CHECK(user_list.user_state==TOOL_RUN && mc_core_list.motor_en);
+        /* 首次方向确认不会绕过实时或锁存故障的电机许可门控。 */
+        user_list.userErr.bits.gNtcMos=1;
+        run_main_enable_ipd();
+        CHECK(!mc_core_list.motor_en);
+        user_list.userErr.word=0;
+        machine_error_hold.userErr_hold.bits.gIBusAcmpOCP=1;
+        run_main_enable_ipd();
+        CHECK(!mc_core_list.motor_en);
+    }
+}
+
 uint32_t run_tests(void)
 {
 #define RUN(number, function) do { test_case = number; function(); if(test_failure_line) return test_failure_line; } while(0)
@@ -575,5 +617,6 @@ uint32_t run_tests(void)
     RUN(9, test_receive_during_reply_wait);
     RUN(10, test_invalid_runtime_does_not_refresh);
     RUN(11, test_direction_interlock);
+    RUN(12, test_trigger_power_on);
     return 0;
 }

@@ -33,6 +33,8 @@ def build(keil, output):
     code.append(f'#include "{(ROOT / "USER/Bat_com.c").as_posix()}"')
     code.append(extract_function(ROOT / "USER/user_control.c", "void user_state_control(void)"))
     code.append(extract_function(ROOT / "USER/user_control.c", "void user_direction_handle(void)"))
+    code.append(extract_function(ROOT / "USER/user_control.c", "void user_para_init(void)"))
+    code.append(extract_function(ROOT / "USER/user_control.c", "void motor_on_off_control(void)"))
     code.append(extract_function(ROOT / "MOTOR_CONTROL/motor_control.c", "void MC_Machine_State(void)"))
     main = (ROOT / "USER/main.c").read_text(encoding="utf-8")
     start = main.index("/* 根据状态机设置电机使能标志 */")
