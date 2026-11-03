@@ -86,6 +86,8 @@ static void reset_fixture(void)
     light_ctrl.state = LIGHT_OFF;
     user_list.direction_ready = 1;
     user_list.dir_valid = 1;
+    user_list.led_input_valid = 1;
+    user_list.Dir_Data = 0;
     user_list.dir_retrig_need = 0;
     dir_input_bits = RWD_PIN;
     Bat_Com_Restart();
@@ -508,58 +510,55 @@ static void test_direction_interlock(void)
     reset_fixture();
     link_safe();
     CHECK(Bat_Com_CanRun());
-
-    /* 两引脚同时不生效（都为高）：方向无效，去抖后不就绪、不允许启动 */
-    dir_input_bits = DIR_PIN | RWD_PIN;
-    for(i = 0; i < 12; i++) user_direction_handle();
+    user_list.led_input_valid=0;
+    for(i=0;i<12;i++) user_direction_handle();
     CHECK(!user_list.dir_valid && !user_list.direction_ready);
-
-    /* 两引脚同时生效（都为低）：同样无效 */
-    dir_input_bits = 0;
-    for(i = 0; i < 12; i++) user_direction_handle();
-    CHECK(!user_list.dir_valid && !user_list.direction_ready);
-
-    /* 选择单一方向(FWD)，但电位器保持按下：方向有效但需重扣，未就绪 */
-    user_list.flag.bits.gToolTrigger = 1;
-    dir_input_bits = RWD_PIN;
-    for(i = 0; i < 12; i++) user_direction_handle();
-    CHECK(user_list.dir_valid && user_list.dir_retrig_need && !user_list.direction_ready);
+    user_list.led_input_valid=1;
+    user_list.Dir_Data=0;
+    user_list.flag.bits.gToolTrigger=1;
+    for(i=0;i<12;i++) user_direction_handle();
+    CHECK(user_list.dir_retrig_need && !user_list.direction_ready);
     user_state_control();
-    CHECK(user_list.user_state != TOOL_RUN && !user_list.flag.bits.gToolEn);
-
-    /* 松开电位器：解除重扣锁定，方向就绪，但松开状态下仍不启动 */
-    user_list.flag.bits.gToolTrigger = 0;
+    CHECK(user_list.user_state!=TOOL_RUN && !user_list.flag.bits.gToolEn);
+    user_list.flag.bits.gToolTrigger=0;
     user_direction_handle();
-    CHECK(!user_list.dir_retrig_need && user_list.direction_ready);
-    user_state_control();
-    CHECK(user_list.user_state != TOOL_RUN);
-
-    /* 重新按下电位器：满足启动条件，电机可转 */
-    user_list.flag.bits.gToolTrigger = 1;
-    user_direction_handle();
-    CHECK(user_list.direction_ready);
-    user_state_control();
-    CHECK(user_list.user_state == TOOL_RUN && user_list.flag.bits.gToolEn);
-
-    /* 运行途中两引脚同时生效：方向变无效，立即停机 */
-    dir_input_bits = 0;
-    for(i = 0; i < 12; i++) user_direction_handle();
-    CHECK(!user_list.dir_valid);
-    user_state_control();
-    CHECK(user_list.user_state == TOOL_STOP && !user_list.flag.bits.gToolEn);
-
-    /* 恢复单一方向后仍须松开电位器再按下才能重启 */
-    dir_input_bits = RWD_PIN;
-    for(i = 0; i < 12; i++) user_direction_handle();
-    CHECK(user_list.dir_valid && user_list.dir_retrig_need && !user_list.direction_ready);
-    user_state_control();
-    CHECK(user_list.user_state != TOOL_RUN && !user_list.flag.bits.gToolEn);
-    user_list.flag.bits.gToolTrigger = 0;
-    user_direction_handle();
-    user_list.flag.bits.gToolTrigger = 1;
+    CHECK(user_list.dir_valid && user_list.direction_ready);
+    user_list.flag.bits.gToolTrigger=1;
     user_direction_handle();
     user_state_control();
-    CHECK(user_list.user_state == TOOL_RUN && user_list.flag.bits.gToolEn);
+    CHECK(user_list.user_state==TOOL_RUN && user_list.flag.bits.gToolEn);
+    motor_control_list.bldc_state=MOTOR_RUN;
+    mc_core_list.motor_en=1;
+    user_list.Dir_Data=1;
+    for(i=0;i<12;i++) user_direction_handle();
+    CHECK(!user_list.dir_valid && mc_core_list.mc_dir==0);
+    user_state_control();
+    CHECK(user_list.user_state==TOOL_STOP && !user_list.flag.bits.gToolEn);
+    mc_core_list.motor_en=0;
+    motor_control_list.bldc_state=MOTOR_HBRAKE;
+    motor_control_list.motor_run_last_dir=mc_core_list.mc_dir;
+    mc_core_list.motion_en=1;
+    for(i=0;i<12;i++)
+    {
+        user_direction_handle();
+        user_state_control();
+        run_main_enable_ipd();
+        CHECK(user_list.user_state==TOOL_STOP && !mc_core_list.motor_en);
+        MC_Machine_State();
+        CHECK(motor_control_list.bldc_state==MOTOR_HBRAKE);
+    }
+    for(i=0;i<12;i++) user_direction_handle();
+    CHECK(user_list.dir_retrig_need && !user_list.direction_ready);
+    user_state_control();
+    CHECK(user_list.user_state!=TOOL_RUN);
+    motor_control_list.bldc_state=MOTOR_STOP;
+    user_list.flag.bits.gToolTrigger=0;
+    user_direction_handle();
+    CHECK(mc_core_list.mc_dir==1 && user_list.direction_ready);
+    user_list.flag.bits.gToolTrigger=1;
+    user_direction_handle();
+    user_state_control();
+    CHECK(user_list.user_state==TOOL_RUN && user_list.flag.bits.gToolEn);
 }
 
 uint32_t run_tests(void)

@@ -66,7 +66,7 @@
 
 
 
-#define LED_SCAN_EN       (0)
+#define LED_SCAN_EN       (1)  // 新板7灯与方向/按键分时复用
 #define PWM_DUTY_GEARS1    (u32)(32768 * 0.5f)  
 #define PWM_DUTY_GEARS2    (u32)(32768 * 0.80f)    
 #define PWM_DUTY_GEARS3    (u32)(32768 * 1.0f) 
@@ -349,8 +349,8 @@
 //#define SOC1_MV                     	                        (u32)((16.2)*100)
 
 	
-#define MOS_NTC_10K_3435K 1
-#define MOS_NTC_100K_3950K 0
+#define MOS_NTC_10K_3435K 0
+#define MOS_NTC_100K_3950K 1
 #if 	MOS_NTC_10K_3435K
 
 #define RT_60_F 2.965f   //3435K-10k
@@ -390,7 +390,7 @@
 /* ---------------------------- MOS Temperature Protect Parameter -------------------------- */
 #define EN_MOS_TEMP_DETECT     	       	(1)    		/* MOS温度保护功能使能 */
 #define MOS_TEMP_UP_VOL                	5     		/* MOS温度检测上拉电压，单位：V */
-#define MOS_TEMP_UP_RES        	       	10.0f    		/* MOS温度检测上拉电阻，单位：K欧 */
+#define MOS_TEMP_UP_RES        	       	4.7f    		/* MOS温度检测上拉电阻，单位：K欧 */
 #define MOS_TEMP_OVER_TIME     					50  			/* 单位：ms */
 #define RSM_MOS_TEMP_OVER_TIME 					500  			/* 单位：ms */
 /* 将用户设定值转换为ADC采样值 */
@@ -400,7 +400,7 @@
 #define RSM_MOS_TEMP_OVER_THD_ADC   		(u16)(RSM_MOS_TEMP_OVER_RES_RATIO * MOS_TEMP_UP_VOL * ADC_REF_VALUE / ADC_REFV)	// 恢复过温保护阈值
 
 /* ---------------------------- BAT Temperature Protect Parameter -------------------------- */
-#define EN_BAT_TEMP_DETECT               (1)             /* BAT温度保护功能使能 */
+#define EN_BAT_TEMP_DETECT               (0)             /* DS/TBAT仅预留；用户确认本版不启用电池温度保护 */
 
 
 

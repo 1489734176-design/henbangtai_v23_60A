@@ -1,0 +1,182 @@
+#include <string.h>
+
+volatile uint32_t test_failure_line, test_case, test_checks;
+#define CHECK(x) do { test_checks++; if(!(x)) { test_failure_line = __LINE__; return; } } while(0)
+
+static void test_alarm_mapping(void)
+{
+	/* Literal bit/flash pairs from the reference, plus the new fourth OCP stage. */
+	const uint32_t faults[] = {1u, 1u<<12, 1u<<11, 1u<<19, 2u, 4u, 8u, 16u,
+		1u<<6, 1u<<7, 1u<<8, 1u<<18, 1u<<9, 1u<<14, 1u<<15, 1u<<20, 32u, 1u<<13};
+	const uint8_t flashes[] = {1, 2, 3, 3, 5, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 12, 13, 14};
+	unsigned i;
+	for(i=0; i<sizeof(flashes); i++)
+	{
+		memset(&machine_error_hold, 0, sizeof(machine_error_hold));
+		memset(&user_led_control, 0, sizeof(user_led_control));
+		machine_error_hold.userErr_hold.word=faults[i];
+		CHECK(LedError_Control()==1);
+		CHECK(user_led_control.LedRunCnt_Once==flashes[i]);
+	}
+	machine_error_hold.userErr_hold.word=0;
+	memset(&user_led_control, 0, sizeof(user_led_control));
+	machine_error_hold.MC_error_hold.bits.gBlock=1;
+	CHECK(LedError_Control() && user_led_control.LedRunCnt_Once==4);
+	machine_error_hold.MC_error_hold.word=0;
+	memset(&user_led_control, 0, sizeof(user_led_control));
+	machine_error_hold.MC_error_hold.bits.gLackPhase=1;
+	CHECK(LedError_Control() && user_led_control.LedRunCnt_Once==10);
+	machine_error_hold.MC_error_hold.word=0;
+	memset(&user_led_control, 0, sizeof(user_led_control));
+	machine_error_hold.MC_error_hold.bits.gLosStep=1;
+	CHECK(LedError_Control() && user_led_control.LedRunCnt_Once==11);
+	/* Simultaneous errors retain the reference's hardware-OCP priority. */
+	machine_error_hold.userErr_hold.word=1;
+	memset(&user_led_control, 0, sizeof(user_led_control));
+	CHECK(LedError_Control() && user_led_control.LedRunCnt_Once==1);
+}
+
+static void test_matrix_and_sampling(void)
+{
+	unsigned led, slot;
+	const uint16_t column_a[] = {0x2000, 1, 0x400, 0x2000, 1, 0x400, 0};
+	for(led=1; led<=7; led++)
+	{
+		GPIOA->CRL=0x77777770;
+		GPIO_SetBits(GPIOA, GPIO_Pin_11);
+		led_init();
+		CHECK((GPIOA->CRL & 0xfffffff0)==0x77777770); /* PWM/ADC邻脚未改 */
+		CHECK(GPIOA->ODR & GPIO_Pin_11); /* EN保持高 */
+		user_list.user_state=TOOL_STOP;
+		user_list.led_scan_start_flag=1;
+		ledData.Word=1u<<led;
+		GPIOA->IDR=0xffff;
+		GPIOB->IDR=0xffff;
+		for(slot=1; slot<=9; slot++)
+		{
+			if(slot==9) { GPIOA->IDR=0; GPIOB->IDR=0; }
+			LED_Scan();
+			CHECK(GPIOA->ODR & GPIO_Pin_11);
+			if(slot<=7)
+			{
+				uint32_t mode_b=GPIOB->CRH & 0xf;
+				uint32_t mode_a=(GPIOA->CRH>>24) & 0xf;
+				if(slot==led)
+				{
+					CHECK(mode_b==((led>=4 && led<=6) ? 1 : 0));
+					CHECK(mode_a==((led<=3 || led==7) ? 1 : 0));
+					CHECK((GPIOA->ODR & 0x2401)==(0x2401 & ~column_a[led-1]));
+					CHECK((GPIOB->ODR & 0x200)==(led==7 ? 0 : 0x200));
+				}
+				else
+				{
+					CHECK(mode_a==0 && mode_b==0);
+					CHECK((GPIOA->ODR & 0x2401)==0x2401 && (GPIOB->ODR & 0x200));
+				}
+			}
+			else
+			{
+				CHECK((GPIOB->CRH & 0xf)==8 && ((GPIOA->CRH>>24) & 0xf)==8);
+				CHECK((GPIOA->ODR & 0x2401)==0x2401 && (GPIOB->ODR & 0x200));
+			}
+			if(slot<9) CHECK(!user_list.led_input_valid && user_list.Dir_Data==1 && user_list.Key_Data==1);
+		}
+		CHECK(user_list.led_input_valid && !user_list.Dir_Data && !user_list.Key_Data);
+	}
+	/* 禁止扫描/休眠时不驱动灯，仍可在休眠时采样输入。 */
+	user_list.led_scan_start_flag=0;
+	LED_Scan();
+	CHECK(!user_list.led_input_valid);
+	user_list.led_scan_start_flag=1;
+	user_list.user_state=TOOL_POWER_DOWN;
+	ledData.Word=0xfe;
+	for(slot=0; slot<9; slot++)
+	{
+		LED_Scan();
+		CHECK(!(GPIOA->CRH & GPIO_CRH_MODE14) && !(GPIOB->CRH & GPIO_CRH_MODE8));
+	}
+	CHECK(user_list.led_input_valid);
+}
+
+static void test_direction_and_key(void)
+{
+	unsigned i;
+	memset(&user_list, 0, sizeof(user_list));
+	memset(&mc_core_list, 0, sizeof(mc_core_list));
+	memset(&motor_control_list, 0, sizeof(motor_control_list));
+	motor_control_list.bldc_state=MOTOR_STOP;
+	user_list.flag.bits.gToolTrigger=1;
+	user_direction_handle();
+	CHECK(!user_list.direction_ready && user_list.dir_retrig_need);
+	user_list.led_input_valid=1;
+	user_list.Dir_Data=0;
+	GPIOB->IDR=0xffff; /* 点灯阶段IDR与缓存相反，逻辑仍应读取缓存。 */
+	for(i=0;i<12;i++) user_direction_handle();
+	CHECK(!user_list.direction_ready && !user_list.dir_valid);
+	user_list.flag.bits.gToolTrigger=0;
+	user_direction_handle();
+	CHECK(user_list.direction_ready && user_list.dir_valid && mc_core_list.mc_dir==0);
+	user_list.flag.bits.gToolTrigger=1;
+	motor_control_list.bldc_state=MOTOR_RUN;
+	mc_core_list.motor_en=1;
+	user_list.Dir_Data=1;
+	for(i=0;i<12;i++) user_direction_handle();
+	CHECK(!user_list.dir_valid && user_list.dir_retrig_need && mc_core_list.mc_dir==0);
+	motor_control_list.bldc_state=MOTOR_HBRAKE;
+	user_list.flag.bits.gToolTrigger=0;
+	user_direction_handle();
+	CHECK(mc_core_list.mc_dir==0 && !user_list.direction_ready);
+	motor_control_list.bldc_state=MOTOR_STOP;
+	mc_core_list.motor_en=0;
+	user_list.flag.bits.gToolTrigger=1;
+	user_direction_handle();
+	CHECK(mc_core_list.mc_dir==0 && !user_list.direction_ready);
+	user_list.flag.bits.gToolTrigger=0;
+	user_direction_handle();
+	CHECK(mc_core_list.mc_dir==1 && user_list.direction_ready);
+	user_list.Key_Data=0;
+	for(i=0;i<60;i++) CHECK(key_scan()==0);
+	user_list.Key_Data=1;
+	CHECK(key_scan()==1);
+	CHECK(key_scan()==0);
+	user_list.led_input_valid=0;
+	user_list.Key_Data=0;
+	for(i=0;i<60;i++) CHECK(key_scan()==0);
+	user_list.led_input_valid=1;
+	user_list.Key_Data=1;
+	CHECK(key_scan()==0);
+}
+
+static void test_blink_cycle(void)
+{
+	unsigned ticks=0, rises=0;
+	uint8_t was_on=0;
+	memset(&machine_error_hold, 0, sizeof(machine_error_hold));
+	memset(&user_led_control, 0, sizeof(user_led_control));
+	machine_error_hold.userErr_hold.bits.gIBusAvgOCP4=1;
+	LedError_Control();
+	while(user_led_control.LedRunTimes==10 && ticks++<12000)
+	{
+		LedError_Run();
+		CHECK(LED1==LED2 && LED2==LED3);
+		if(LED1 && !was_on) rises++;
+		was_on=LED1;
+	}
+	CHECK(rises==13 && user_led_control.LedRunTimes==9);
+}
+
+uint32_t run_tests(void)
+{
+	test_case=1;
+	test_alarm_mapping();
+	if(test_failure_line) return test_failure_line;
+	test_case=2;
+	test_matrix_and_sampling();
+	if(test_failure_line) return test_failure_line;
+	test_case=3;
+	test_direction_and_key();
+	if(test_failure_line) return test_failure_line;
+	test_case=4;
+	test_blink_cycle();
+	return test_failure_line;
+}

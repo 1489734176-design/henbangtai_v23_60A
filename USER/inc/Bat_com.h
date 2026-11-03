@@ -10,7 +10,9 @@
 #include "mm32_device.h"
 #include "hal_conf.h"
 
-#define BAT_COM_EN                     (1)      /* 电池通信功能总开关，0 时许可恒为通过 */
+#ifndef BAT_COM_EN
+#define BAT_COM_EN                     (0)      /* 新板无通信电路，PA11/12/14已用于EN/照明/KEY */
+#endif
 #define BAT_CMD_HANDSHAKE              (0xA5u)  /* 握手命令字 */
 #define BAT_CMD_RUNTIME                (0xD1u)  /* 运行数据命令字 */
 #define BAT_CMD_REHANDSHAKE            (0xFFu)  /* 未握手时回复请求重握手 */

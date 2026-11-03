@@ -45,7 +45,7 @@ def build(keil, output):
     compiler = keil / "ARM/ARMCLANG/bin/armclang.exe"
     command = [
         str(compiler), "--target=arm-arm-none-eabi", "-mcpu=cortex-m0", "-std=c99", "-O1", "-g",
-        "-fshort-enums", "-ffunction-sections", "-fdata-sections", "-Wall", "-Wextra", "-Werror",
+        "-DBAT_COM_EN=1", "-fshort-enums", "-ffunction-sections", "-fdata-sections", "-Wall", "-Wextra", "-Werror",
         "-Wno-unused-parameter", "-Wno-nonportable-include-path",
         "-Wl,--ro-base=0x08000000,--rw-base=0x20000000,--entry=run_tests",
         "-o", str(image), str(source),

@@ -126,6 +126,7 @@ void Get_ADC_Result()
 	mc_core_list.Board_ADC_DATA.u16Vbus	 			= (uint16_t)GET_ADC_VALUE(VBUS_CHANNEL);
 
 	mc_core_list.Board_ADC_DATA.u16NTC_MOS 			= (uint16_t)GET_ADC_VALUE(T_MOS_CHANNEL);
+	mc_core_list.Board_ADC_DATA.u16NTC_BAT = (uint16_t)GET_ADC_VALUE(T_BAT_CHANNEL);
 	
 	/*if(user_list.led_reuse_adc_flag==1&&mc_core_list.ipd_star_flag==0)  // LED复用ADC时采集温度
 	{
@@ -471,7 +472,9 @@ void TIM1_BRK_UP_TRG_COM_IRQHandler(void)
 
 		}
 
-		/* LED 复用扫描（LED_Scan）已随单灯硬件取消，见 led.h */
+		#if LED_SCAN_EN
+		LED_Scan();
+#endif
 		#if (Block_Protect_En)
 			motor_block_detect();
 		#endif

@@ -1376,164 +1376,56 @@ void power_on_fly_machine_handle(void)
  */
 void user_direction_handle(void)
 {
-	
-	static u8 dir_fwd_count=0;
-	static u8 dir_rwd_count=0;
-	static u8 dir_invalid_count=0;
-	#if(1)
-//	if(GPIO_ReadInputDataBit(DIR_PORT,DIR_PIN)) 
+	static uint8_t candidate_dir=0;
+	static uint8_t stable_count=0;
+	uint8_t requested_dir;
 
-/*
-	if(user_list.Dir_Data) 
-	{
-			dir_ccw_count=0;
-			if(++dir_cw_count>10)
-			{
-				dir_cw_count=10;
-				if(motor_control_list.bldc_state==MOTOR_STOP||motor_control_list.bldc_state==MOTOR_HBRAKE||motor_control_list.bldc_state==MOTOR_SBRAKE||motor_control_list.bldc_state==MOTOR_BRAKE2STOP)
-				{
-					user_list.flag.bits.gToolDir=Tool_Dir_CCW_Value;
-					mc_core_list.mc_dir=user_list.flag.bits.gToolDir;
-				}
-				
-			}						
-
-	}
-	else 
-	{
-			dir_cw_count=0;
-			if(++dir_ccw_count>10)
-			{
-				dir_ccw_count=10;
-				if(motor_control_list.bldc_state==MOTOR_STOP||motor_control_list.bldc_state==MOTOR_HBRAKE||motor_control_list.bldc_state==MOTOR_SBRAKE||motor_control_list.bldc_state==MOTOR_BRAKE2STOP)
-				{
-					user_list.flag.bits.gToolDir=Tool_Dir_CW_Value;
-					mc_core_list.mc_dir=user_list.flag.bits.gToolDir;
-				}
-			
-			}	
-	}
-*/
-	u16 dir_inputs = GPIO_ReadInputData(DIR_PORT) & (DIR_PIN | RWD_PIN);
-	/* 恰好一个方向引脚生效（一低一高）才算有效方向 */
-	u8 single = (dir_inputs == RWD_PIN) || (dir_inputs == DIR_PIN);
 	user_list.direction_ready=0;
-
-	/* 两个方向引脚同时生效或同时不生效：方向无效。
-	   去抖后清除 dir_valid，并置重扣锁定——退出无效状态后必须先松开电位器
-	   再按下才能启动。此判断在运行早退出之前执行，故运行途中变无效也能被捕获。 */
-	if(!single)
+	if(!user_list.led_input_valid)
 	{
-		if(dir_invalid_count < 10)
-		{
-			dir_invalid_count++;
-		}
-		if(dir_invalid_count >= 10)
-		{
-			user_list.dir_valid=0;
-		}
+		stable_count=0;
+		user_list.dir_valid=0;
 		user_list.dir_retrig_need=1;
-		dir_fwd_count=0;
-		dir_rwd_count=0;
 		return;
 	}
-	dir_invalid_count=0;
-
-	/* 单一方向有效时，电位器（扳机）松开即解除重扣锁定 */
+	/* 参考板：低电平正转，高电平反转；禁止直接读取正在点灯的PB8。 */
+	requested_dir=user_list.Dir_Data ? Tool_Dir_CCW_Value : Tool_Dir_CW_Value;
+	if(requested_dir != candidate_dir)
+	{
+		candidate_dir=requested_dir;
+		stable_count=0;
+	}
+	if(stable_count < 10)
+	{
+		stable_count++;
+	}
+	if(stable_count < 10)
+	{
+		return;
+	}
+	/* 运行中检测到换向先停机，保持原换相方向直到停稳并松开扳机。 */
+	if(requested_dir != mc_core_list.mc_dir)
+	{
+		user_list.dir_valid=0;
+		user_list.dir_retrig_need=1;
+	}
+	if(motor_control_list.bldc_state != MOTOR_STOP ||
+	   mc_core_list.motor_en || user_list.flag.bits.gToolEn)
+	{
+		return;
+	}
 	if(user_list.flag.bits.gToolTrigger==0)
 	{
 		user_list.dir_retrig_need=0;
 	}
-
-	/* 制动或启动请求尚未撤销时，不得修改换相方向。 */
-	if(motor_control_list.bldc_state != MOTOR_STOP ||
-	   mc_core_list.motor_en || user_list.flag.bits.gToolEn)
+	if(user_list.dir_retrig_need)
 	{
-		dir_fwd_count=0;
-		dir_rwd_count=0;
 		return;
 	}
-
-	if(dir_inputs == RWD_PIN)
-	{
-		dir_rwd_count=0;
-		if(dir_fwd_count < 10)
-		{
-			dir_fwd_count++;
-		}
-		if(dir_fwd_count == 10)
-		{
-			user_list.flag.bits.gToolDir=Tool_Dir_CW_Value;
-			mc_core_list.mc_dir=user_list.flag.bits.gToolDir;
-			user_list.dir_valid=1;
-			/* 仅在不需要重扣时才置就绪，实现“松开电位器再按下”方可启动 */
-			if(!user_list.dir_retrig_need)
-			{
-				user_list.direction_ready=1;
-			}
-		}
-	}
-	else if(dir_inputs == DIR_PIN)
-	{
-		dir_fwd_count=0;
-		if(dir_rwd_count < 10)
-		{
-			dir_rwd_count++;
-		}
-		if(dir_rwd_count == 10)
-		{
-			user_list.flag.bits.gToolDir=Tool_Dir_CCW_Value;
-			mc_core_list.mc_dir=user_list.flag.bits.gToolDir;
-			user_list.dir_valid=1;
-			if(!user_list.dir_retrig_need)
-			{
-				user_list.direction_ready=1;
-			}
-		}
-	}
-	else
-	{
-		dir_fwd_count=0;
-		dir_rwd_count=0;
-	}
-	#endif
-	
-	#if(0)
-	user_list.dir_adc=(uint16_t)GET_ADC_VALUE(DIR_CHANNEL);
-//	mc_core_list.mc_dir=1;
-		if(user_list.dir_adc>3600) 
-	{
-			dir_ccw_count=0;
-			if(++dir_cw_count>10)
-			{
-				dir_cw_count=10;
-				if(motor_control_list.bldc_state==MOTOR_STOP||motor_control_list.bldc_state==MOTOR_HBRAKE||motor_control_list.bldc_state==MOTOR_SBRAKE||motor_control_list.bldc_state==MOTOR_BRAKE2STOP)
-				{
-					user_list.flag.bits.gToolDir=Tool_Dir_CCW_Value;
-					mc_core_list.mc_dir=user_list.flag.bits.gToolDir;
-				}
-			}
-			
-			
-
-	}
-	else if(user_list.dir_adc<3600&&user_list.dir_adc>2000)
-	{
-			dir_cw_count=0;
-			if(++dir_ccw_count>10)
-			{
-				dir_ccw_count=10;
-				if(motor_control_list.bldc_state==MOTOR_STOP||motor_control_list.bldc_state==MOTOR_HBRAKE||motor_control_list.bldc_state==MOTOR_SBRAKE||motor_control_list.bldc_state==MOTOR_BRAKE2STOP)
-				{
-					user_list.flag.bits.gToolDir=Tool_Dir_CW_Value;
-					mc_core_list.mc_dir=user_list.flag.bits.gToolDir;
-				
-				}
-				
-			}
-	
-	}
-	#endif
+	user_list.flag.bits.gToolDir=requested_dir;
+	mc_core_list.mc_dir=requested_dir;
+	user_list.dir_valid=1;
+	user_list.direction_ready=1;
 }
 /**
  * @brief  按键扫描
@@ -1544,7 +1436,12 @@ u8 key_scan(void)
 {
 	static u16 key_count=0;
 	u8 res=0;
-//	user_list.key_adc=(uint16_t)GET_ADC_VALUE(DIR_CHANNEL);
+	if(!user_list.led_input_valid)
+	{
+		key_count=0;
+		return 0;
+	}
+// 按键与LED行2复用，只使用扫描窗口采样值。
 		user_list.key_adc =user_list.Key_Data;
 	if(!user_list.key_adc)
 	{
@@ -2231,6 +2128,7 @@ void user_state_control(void)
 			}
 //			else if(user_list.flag.bits.gToolTrigger && user_list.direction_ready && Bat_Com_CanRun())
 			else if(user_list.flag.bits.gToolTrigger &&
+					user_list.dir_valid && !user_list.dir_retrig_need &&
 					(user_list.direction_ready || motor_control_list.bldc_state != MOTOR_STOP) &&
 					Bat_Com_CanRun())
 			{
@@ -2303,7 +2201,7 @@ void user_state_control(void)
 			{
 				user_list.user_state=TOOL_STOP;
 			}
-			/* 运行中方向变为无效（两引脚同时生效或同时不生效）立即停机 */
+			/* 运行中方向变化确认或复用采样失效，撤销运行许可 */
 			if(!user_list.dir_valid)
 			{
 				user_list.flag.bits.gToolEn=0;

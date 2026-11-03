@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-03",
+  "compiler": "Arm Compiler 6.22",
+  "target": "MM32SPIN0230",
+  "build_result": "0 errors, 0 warnings",
+  "flash_range": [
+    "0x8000000",
+    "0x8004b18"
+  ],
+  "bytes": 19224,
+  "hardware_tested": false,
+  "tests": [
+    "seven_led: 4 cases, 11076 checks",
+    "battery_com: 11 cases, 204 checks (BAT_COM_EN=1 test build only)"
+  ],
+  "firmware_sha256": {
+    "SPIN0230_DEMO.axf": "77ef73dfcb78bc36bc0033d66654a5398497e850c2c8155302e95f47fddfae7e",
+    "SPIN0230_DEMO.bin": "49fb1a9551857c64335eed560a72958441677420bbe62a128a20799f529c68e8",
+    "SPIN0230_DEMO.hex": "45ba43ab19097b69172d61b2678d8e8dccf312ef431159d7498267e258571091"
+  },
+  "source_sha256": {
+    "USER/Bat_com.c": "7806e85fe400bec714e437db5a6e4d658e57bcf17508f7aa0cdf01c7ce885335",
+    "USER/board.c": "ddb64f87f516a1539479bfa1da265190f0fd78d4e94496d08d46a854156c0bef",
+    "USER/flash_data_save.c": "25a8ec39276316a5a751efcd34118d317027ff118920829da90c9524d4425353",
+    "USER/led.c": "318ac291098603084091405efc68bc6b13c7483e516e12754a6603ecd8778ed4",
+    "USER/main.c": "cb4d8327b620b6e44a63c0104a44e3576062531613482b102437db01067b2f34",
+    "USER/mm32_it.c": "a03f82bf51548c32d86a52f63e3f399a449f2f5cd1e711d9d2e25e8394bad526",
+    "USER/user_control.c": "b1676c0e6dfe2b9bfe5f2c0794c968a6b2aa5026011852d144634815aa5acb80",
+    "USER/user_function.c": "a25a4dcc6dee1d4a584f213eb1ec16b443eba1623cc528fb3ed94faba7bc227d",
+    "USER/inc/Bat_com.h": "594789e4e39297cec9f6b59f4ce3df5b2a0d369e075f7d9b6b018f29e7394899",
+    "USER/inc/board.h": "0b69dfa2f8fcc5ffbe0d8ac422be8a738458b244c1620914420e681af5665451",
+    "USER/inc/drv_inc.h": "4d868b1893da8132876520b40a58c4f90956bf4ee9a18b66e5e2ea1715a852de",
+    "USER/inc/flash_data_save.h": "75922b7f507b81345c686abe6703424edc5be024a5ad531b707c34956e3fad66",
+    "USER/inc/led.h": "ff7b0c6fb3775649dcbec9533d32b76150a85f5601817af66976a9b430920139",
+    "USER/inc/main.h": "3fff458b3de30e73f1957503b179372a5c9d9bd2bd7ed891c4e979bf340b68c2",
+    "USER/inc/mm32_it.h": "8fb981c500a08c94831a45865e7c3b11e6cb465ba920a16166e88e424379aec4",
+    "USER/inc/parameter.h": "55f2a7fd5e9219a9cb00f42e766139a44c420c091a03583da2be8a71190c4b95",
+    "USER/inc/user_control.h": "4504f11a241d12642c365bf76189a2ea6d6797062d28efe4d8725ce0ac4b2097",
+    "USER/inc/user_function.h": "4bfb0013c3c5cb0f8b6cad5337f66ad077b7024cbe6722233ca929c356efc6c5",
+    "MOTOR_CONTROL/motor_control.c": "6d12733aa1dacc821a3da01bb62754e901cfb4493293bbbf089e931c7ad4ad20",
+    "MOTOR_CONTROL/motor_config.h": "5aa0f7c68d00300f3e7c26d8c678ea1bf32b33f00021111ec0e75945b289f972",
+    "MOTOR_CONTROL/motor_control.h": "c42cad087c9ac0c012eeac9f43cf24f875c0fdcfa68250f53860bcadac37fd9a",
+    "KEIL_PRJ/MM32SPIN0230_Demo.uvprojx": "7133af0a39a06cdb727aa5f39838b82ba2544a8bef58efd53bb34de8781e9216"
+  },
+  "notes": [
+    "DS/TBAT reserved; battery communication and battery-temperature detection disabled.",
+    "LED7 has a scan slot; automatic display defaults off pending its intended use.",
+    "See docs/seven-led-board.md for IO, alarm mapping and required bench checks."
+  ]
+}

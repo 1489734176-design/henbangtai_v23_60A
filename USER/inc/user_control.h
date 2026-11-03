@@ -79,8 +79,8 @@ typedef struct
 	UC_StateMachine_e	user_state;	//工具是否允许转
 	UC_Error_u			userErr; 	//异常报错结构体
 
-	uint8_t		Key_Data;       // 按键数据
-	uint8_t		Dir_Data;       // 方向数据
+	volatile uint8_t		Key_Data;       // 按键数据
+	volatile uint8_t		Dir_Data;       // 方向数据
 	uint16_t	Tmos_Adc;       // MOS温度ADC值
 	uint16_t	Tbat_Adc;       // 电池温度ADC值
 	uint16_t	Vbus_Adc;       // 母线电压ADC值
@@ -99,13 +99,14 @@ typedef struct
 	uint8_t		En_pin_dir;    // 使能引脚方向
 	uint8_t		led_reuse_adc_flag; // LED复用ADC标志
 	uint8_t 	led_reuse_io_flag;  // LED复用IO标志
-	uint8_t 	led_scan_start_flag; // LED扫描启动标志
+	volatile uint8_t 	led_scan_start_flag; // LED扫描启动标志
+	volatile uint8_t led_input_valid; // 复用输入至少完成一次稳定采样
 	uint16_t 	Load_exist;    // 负载存在标志（用于重启判断）
 	uint32_t 	Vcc_cal_gain;  // VCC校准增益
 	uint8_t 	gears_level_changed; // 挡位变化标志
 	uint16_t 	dir_level_changed_count;
 	uint8_t		direction_ready;
-	uint8_t		dir_valid;        // 方向有效：恰好一个方向引脚生效（两同高/同低为无效）
+	uint8_t		dir_valid;        // 方向已稳定确认，单线DIRCTION输入
 	uint8_t		dir_retrig_need;  // 需重新扣动电位器才能启动：松开电位器后清除
 } User_list_Struct;
 

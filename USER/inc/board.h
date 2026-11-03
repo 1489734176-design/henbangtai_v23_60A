@@ -60,8 +60,8 @@
 #define VR_RANK                     (5)
 #define VBUS_CHANNEL                ADC_Channel_1   // 母线电压	
 #define VBUS_RANK                   (6)
-#define DIR_CHANNEL                ADC_Channel_2   // 方向检测	
-#define DIR_RANK                   (7)
+#define T_BAT_CHANNEL                ADC_Channel_2   // PA3：预留电池温度采样
+#define T_BAT_RANK                   (7)
 
 #define T_MOS_CHANNEL                ADC_Channel_3   // MOS温度NTC	
 #define T_MOS_RANK                   (8)
@@ -93,30 +93,27 @@
 
 #define EN_PIN_RCC_CLOCKGPIO          (RCC_AHBENR_GPIOA_Msk)
 #define EN_PORT                      GPIOA
-#define EN_PIN                       GPIO_Pin_13
-#define EN_PIN_SRC                   GPIO_PinSource13
+#define EN_PIN                       GPIO_Pin_11
+#define EN_PIN_SRC                   GPIO_PinSource11
 #define EN_PIN_AF                    GPIO_AF_1
 
 
 
 #define DIR_RCC_CLOCKGPIO          (RCC_AHBENR_GPIOB_Msk)
 #define DIR_PORT                   GPIOB
-// 方向检测引脚：FWD(正转)=PB8，RWD(反转)=PB9，上拉输入，开关闭合读到低电平
+// PB8 与 LED 行1复用；仅在扫描输入窗口读取，低=正转，高=反转。
 #define DIR_PIN                    GPIO_Pin_8
-
-#define RWD_RCC_CLOCKGPIO          (RCC_AHBENR_GPIOB_Msk)
-#define RWD_PORT                   GPIOB
-#define RWD_PIN                    GPIO_Pin_9
 
 #define KEY_RCC_CLOCKGPIO          (RCC_AHBENR_GPIOA_Msk)
 #define KEY_PORT                   GPIOA
 // 按键引脚
 #define KEY_PIN                    GPIO_Pin_14
 
-#define KEY_ONOFF_RCC_CLOCKGPIO		(RCC_AHBENR_GPIOB_Msk)
-#define KEY_ONOFF_PORT				GPIOB
-// 开关机按键引脚
-#define KEY_ONOFF_PIN				GPIO_Pin_9
+#define KEY_PIN_SRC                GPIO_PinSource14
+#define KEY_PIN_AF                 GPIO_AF_1
+
+#define T_BAT_PORT                 GPIOA
+#define T_BAT_PIN                  GPIO_Pin_3
 
 #define T_MOS_PORT                   GPIOA
 // MOS温度NTC引脚
@@ -260,9 +257,8 @@
 #define RF_PIN                    	GPIO_Pin_9
 
 /** Key interface */
-#define KEY_RCC_CLOCKGPIO           (RCC_AHBENR_GPIOA_Msk)
-#define KEY1_PORT                   GPIOA
-#define KEY1_PIN                    GPIO_Pin_5
+#define KEY1_PORT                  KEY_PORT
+#define KEY1_PIN                   KEY_PIN
 
 
 /** Key interface */

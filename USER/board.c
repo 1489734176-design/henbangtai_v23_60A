@@ -102,6 +102,10 @@ void Bsp_Adc_Init(void)
 //	   GPIO_InitStructure.GPIO_Pin     = DIR_PIN;
 //    GPIO_Init(DIR_PORT, &GPIO_InitStructure);
 
+	/* PA3：DS/TBAT 预留采样，不参与当前保护判定。 */
+	GPIO_InitStructure.GPIO_Pin = T_BAT_PIN;
+	GPIO_Init(T_BAT_PORT, &GPIO_InitStructure);
+
 	/* T_MOS（MOS温度） */
 	GPIO_InitStructure.GPIO_Pin     = T_MOS_PIN;
     GPIO_Init(T_MOS_PORT, &GPIO_InitStructure);
@@ -176,28 +180,18 @@ void Bsp_Debug_IO_Init(void)
   */
 void Bsp_Key_Init(void)
 {
-    GPIO_InitTypeDef GPIO_InitStructure;
-    GPIO_StructInit(&GPIO_InitStructure);
-
-		/* LED Clock Enable */
-    RCC_AHBPeriphClockCmd(KEY_RCC_CLOCKGPIO | KEY_ONOFF_RCC_CLOCKGPIO, ENABLE);		// OK
-
-	/*Configure GPIO pin : LED_Pin */
-	GPIO_InitStructure.GPIO_Pin     =  KEY1_PIN;
-    GPIO_InitStructure.GPIO_Speed   = GPIO_Speed_High;
-    GPIO_InitStructure.GPIO_Mode    = GPIO_Mode_IPU;
-    GPIO_Init(KEY1_PORT, &GPIO_InitStructure);
-	
-	/*Configure GPIO pin : ONOFF_Pin */
-	GPIO_InitStructure.GPIO_Pin     =  KEY_ONOFF_PIN;
-    GPIO_InitStructure.GPIO_Speed   = GPIO_Speed_High;
-    GPIO_InitStructure.GPIO_Mode    = GPIO_Mode_FLOATING;
-    GPIO_Init(KEY_ONOFF_PORT, &GPIO_InitStructure);
+    GPIO_InitTypeDef gpio;
+    RCC_AHBPeriphClockCmd(KEY_RCC_CLOCKGPIO, ENABLE);
+    GPIO_PinAFConfig(KEY_PORT, KEY_PIN_SRC, KEY_PIN_AF);
+    GPIO_StructInit(&gpio);
+    gpio.GPIO_Pin = KEY_PIN;
+    gpio.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(KEY_PORT, &gpio);
 }
 
 /**
   * @brief 使能端口初始化
-  *        配置PA13为推挽输出（电源保持EN），并置高使能
+  *        配置PA11为推挽输出（电源保持EN），并置高使能
   */
 void En_Port_init(void)
 {
@@ -209,7 +203,7 @@ void En_Port_init(void)
     RCC_AHBPeriphClockCmd(EN_PIN_RCC_CLOCKGPIO, ENABLE);		// OK
 	
 	GPIO_SetBits(EN_PORT, EN_PIN);
-	/* PA13 的 AF0 是 SWDIO，普通 GPIO 必须先解除调试复用。 */
+	/* PA11 用作 EN，保持普通 GPIO 功能。 */
 	GPIO_PinAFConfig(EN_PORT, EN_PIN_SRC, EN_PIN_AF);
 	GPIO_InitStructure.GPIO_Pin     =  EN_PIN;
     GPIO_InitStructure.GPIO_Speed   = GPIO_Speed_High;
@@ -225,6 +219,7 @@ void En_Port_init(void)
   */
 void Bsp_Com_Tx_Mode(uint8_t uart_enable)
 {
+#if BAT_COM_EN
     GPIO_InitTypeDef gpio;
 
     GPIO_StructInit(&gpio);
@@ -233,6 +228,9 @@ void Bsp_Com_Tx_Mode(uint8_t uart_enable)
     gpio.GPIO_Speed = GPIO_Speed_High;
     gpio.GPIO_Mode = uart_enable ? GPIO_Mode_AF_PP : GPIO_Mode_Out_PP;
     GPIO_Init(COM_TX_PORT, &gpio);
+#else
+    (void)uart_enable;
+#endif
 }
 
 /**
@@ -290,7 +288,7 @@ void Bsp_Usart_Init(void)
 
 /**
   * @brief 方向检测引脚初始化
-  *        配置PB8/PB9为上拉输入，用于检测机械换向开关
+  *        PB8为方向/LED行1复用输入，PB9由LED COM4驱动
   */
 void Bsp_dir_init(void)
 {
@@ -303,7 +301,7 @@ void Bsp_dir_init(void)
     RCC_AHBPeriphClockCmd(DIR_RCC_CLOCKGPIO, ENABLE);		// OK
 //	GPIO_PinAFConfig(GPIOA, GPIO_PinSource13, GPIO_AF_1);
 	/*Configure GPIO pin : LED_Pin */
-	GPIO_InitStructure.GPIO_Pin     =  DIR_PIN | RWD_PIN;
+	GPIO_InitStructure.GPIO_Pin     =  DIR_PIN;
     GPIO_InitStructure.GPIO_Speed   = GPIO_Speed_High;
     GPIO_InitStructure.GPIO_Mode    = GPIO_Mode_IPU;
     GPIO_Init(DIR_PORT, &GPIO_InitStructure);
@@ -377,11 +375,11 @@ void Bsp_Gpio_Init(void)
 //		Bsp_LED_Init();
 //		LED1_ON();
 		Bsp_dir_init();
-//		Bsp_Key_Init();
+		Bsp_Key_Init();
 }
 /**
   * @brief ADC初始化函数
-  *        配置ADC扫描通道序列（BEMF_U/V/W、OP_O、ISUMAVG、VR、VBUS、DIR、T_MOS）
+  *        配置ADC扫描通道序列（BEMF_U/V/W、OP_O、ISUMAVG、VR、VBUS、T_BAT、T_MOS）
   *        使用TIM1_CC4触发ADC转换
   * @param None
   * @retval None
@@ -427,9 +425,9 @@ void Board_ADC_Init(void)
     sUserAdc1Channel[6].pNext =  &sUserAdc1Channel[7];
 
 
-	/* Rank7: DIR（方向检测） */
-	sUserAdc1Channel[7].u8Rank 			= DIR_RANK;
-    sUserAdc1Channel[7].sAdcChannel = DIR_CHANNEL ;
+	/* Rank7: T_BAT（预留电池温度） */
+	sUserAdc1Channel[7].u8Rank 			= T_BAT_RANK;
+    sUserAdc1Channel[7].sAdcChannel = T_BAT_CHANNEL ;
     sUserAdc1Channel[7].pNext =  &sUserAdc1Channel[8];
 
 

@@ -1,0 +1,1368 @@
+Dependencies for Project 'seven_led_validation', Target 'MM32SPIN0230': (DO NOT MODIFY !)
+CompilerVersion: 6220000::V6.22::ARMCLANG
+F (..\USER\main.c)(0x6AE980B0)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/main.o -MMD)
+I (..\USER\inc\main.h)(0x6A9E91E3)
+I (..\DRIVE\inc\drv_iwdg.h)(0x6A9E8A87)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\USER\inc\drv_inc.h)(0x6A9E9225)
+I (..\SYSTEM\inc\systick.h)(0x6A9E8B00)
+I (..\USER\inc\board.h)(0x6AE982F1)
+I (..\DRIVE\inc\drv_adc.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_comp.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_pwm.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_led.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_div.h)(0x6A9E8A87)
+I (..\USER\inc\mm32_it.h)(0x6AAB9140)
+I (..\USER\inc\user_control.h)(0x6AE97FB0)
+I (..\MC_CORE\mc_core.h)(0x6A9E8B60)
+I (..\USER\inc\parameter.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_device.h)(0x6A3A7418)
+I (..\MOTOR_CONTROL\motor_control.h)(0x6A9E8A28)
+I (..\USER\inc\flash_data_save.h)(0x6A9E91C2)
+I (..\USER\inc\led.h)(0x6AE97FF9)
+I (..\USER\inc\Bat_com.h)(0x6AE97FB0)
+F (..\USER\board.c)(0x6AE97FB0)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/board.o -MMD)
+I (..\USER\inc\board.h)(0x6AE982F1)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\USER\inc\drv_inc.h)(0x6A9E9225)
+I (..\SYSTEM\inc\systick.h)(0x6A9E8B00)
+I (..\DRIVE\inc\drv_adc.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_comp.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_pwm.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_led.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_iwdg.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_div.h)(0x6A9E8A87)
+I (..\USER\inc\mm32_it.h)(0x6AAB9140)
+I (..\USER\inc\main.h)(0x6A9E91E3)
+I (..\USER\inc\parameter.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_device.h)(0x6A3A7418)
+I (..\USER\inc\led.h)(0x6AE97FF9)
+I (..\USER\inc\Bat_com.h)(0x6AE97FB0)
+F (..\USER\mm32_it.c)(0x6AE97FB0)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/mm32_it.o -MMD)
+I (..\USER\inc\drv_inc.h)(0x6A9E9225)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\SYSTEM\inc\systick.h)(0x6A9E8B00)
+I (..\USER\inc\board.h)(0x6AE982F1)
+I (..\DRIVE\inc\drv_adc.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_comp.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_pwm.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_led.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_iwdg.h)(0x6A9E8A87)
+I (..\DRIVE\inc\drv_div.h)(0x6A9E8A87)
+I (..\USER\inc\mm32_it.h)(0x6AAB9140)
+I (..\USER\inc\main.h)(0x6A9E91E3)
+I (..\USER\inc\parameter.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_device.h)(0x6A3A7418)
+I (..\USER\inc\user_control.h)(0x6AE97FB0)
+I (..\MC_CORE\mc_core.h)(0x6A9E8B60)
+I (..\MOTOR_CONTROL\motor_control.h)(0x6A9E8A28)
+I (..\USER\inc\led.h)(0x6AE97FF9)
+I (..\USER\inc\Bat_com.h)(0x6AE97FB0)
+I (..\MOTOR_CONTROL\motor_config.h)(0x6AD73A9D)
+F (..\USER\inc\parameter.h)(0x6AE97FB0)()
+F (..\USER\user_control.c)(0x6AE9815E)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/user_control.o -MMD)
+I (..\USER\inc\user_control.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\MC_CORE\mc_core.h)(0x6A9E8B60)
+I (..\USER\inc\parameter.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_device.h)(0x6A3A7418)
+I (..\USER\inc\board.h)(0x6AE982F1)
+I (..\MOTOR_CONTROL\motor_control.h)(0x6A9E8A28)
+I (..\DRIVE\inc\drv_adc.h)(0x6A9E8A87)
+I (..\USER\inc\flash_data_save.h)(0x6A9E91C2)
+I (..\USER\inc\Bat_com.h)(0x6AE97FB0)
+I (..\USER\inc\led.h)(0x6AE97FF9)
+I (..\SYSTEM\inc\systick.h)(0x6A9E8B00)
+I (..\MOTOR_CONTROL\motor_config.h)(0x6AD73A9D)
+I (..\DRIVE\inc\drv_pwm.h)(0x6A9E8A87)
+F (..\USER\led.c)(0x6AE982F1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/led.o -MMD)
+I (..\USER\inc\board.h)(0x6AE982F1)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\USER\inc\led.h)(0x6AE97FF9)
+I (..\USER\inc\user_control.h)(0x6AE97FB0)
+I (..\MC_CORE\mc_core.h)(0x6A9E8B60)
+I (..\USER\inc\parameter.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_device.h)(0x6A3A7418)
+F (..\USER\flash_data_save.c)(0x6A9E95C9)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/flash_data_save.o -MMD)
+I (..\USER\inc\flash_data_save.h)(0x6A9E91C2)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\USER\inc\user_control.h)(0x6AE97FB0)
+I (..\MC_CORE\mc_core.h)(0x6A9E8B60)
+F (..\USER\Bat_com.c)(0x6ACEE5A6)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/bat_com.o -MMD)
+I (..\USER\inc\board.h)(0x6AE982F1)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\USER\inc\Bat_com.h)(0x6AE97FB0)
+I (..\USER\inc\user_control.h)(0x6AE97FB0)
+I (..\MC_CORE\mc_core.h)(0x6A9E8B60)
+I (..\MOTOR_CONTROL\motor_control.h)(0x6A9E8A28)
+I (..\USER\inc\parameter.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_device.h)(0x6A3A7418)
+F (..\SYSTEM\systick.c)(0x6A9E8AD3)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/systick.o -MMD)
+I (..\SYSTEM\inc\systick.h)(0x6A9E8B00)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\DRIVE\drv_adc.c)(0x6A9E89E1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/drv_adc.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\DRIVE\inc\drv_adc.h)(0x6A9E8A87)
+F (..\DRIVE\drv_comp.c)(0x6A9E89E1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/drv_comp.o -MMD)
+I (..\DRIVE\inc\drv_comp.h)(0x6A9E8A87)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\DRIVE\drv_div.c)(0x6A9E89E1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/drv_div.o -MMD)
+I (..\DRIVE\inc\drv_div.h)(0x6A9E8A87)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\DRIVE\drv_iwdg.c)(0x6A9E89E1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/drv_iwdg.o -MMD)
+I (..\DRIVE\inc\drv_iwdg.h)(0x6A9E8A87)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\DRIVE\drv_led.c)(0x6A9E89E1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/drv_led.o -MMD)
+I (..\DRIVE\inc\drv_led.h)(0x6A9E8A87)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\DRIVE\drv_opamp.c)(0x6A9E89E1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/drv_opamp.o -MMD)
+I (..\DRIVE\inc\drv_opamp.h)(0x6A9E8A87)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\DRIVE\drv_pwm.c)(0x6A9E89E1)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/drv_pwm.o -MMD)
+I (..\USER\inc\main.h)(0x6A9E91E3)
+I (..\DRIVE\inc\drv_iwdg.h)(0x6A9E8A87)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\DRIVE\inc\drv_pwm.h)(0x6A9E8A87)
+I (..\USER\inc\parameter.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_device.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_adc.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_adc.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_comp.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_comp.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_dbg.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_dbg.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_dma.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_dma.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_exti.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_exti.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_flash.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_flash.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_gpio.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_gpio.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_hwdiv.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_hwdiv.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_iwdg.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_iwdg.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_misc.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_misc.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_opamp.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_opamp.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_pwr.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_pwr.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_rcc.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_rcc.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_syscfg.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_syscfg.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_tim.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_tim.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_uid.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_uid.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+F (..\MM32SPIN0230\HAL_Lib\src\hal_usart.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/hal_usart.o -MMD)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\Source\system_mm32spin0230.c)(0x6A3A7418)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/system_mm32spin0230.o -MMD)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+F (..\MM32SPIN0230\Source\KEIL_StartAsm\startup_mm32spin0230_keil.s)(0x6AA7C56A)(--cpu Cortex-M0 -g --pd "__MICROLIB SETA 1" --diag_suppress=A1950W-I.\RTE\_MM32SPIN0230-ID:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include--pd "__UVISION_VERSION SETA 541"--pd "_RTE_ SETA 1"--list ..\.planning\2026-11-03-seven-led-io\build\listings\startup_mm32spin0230_keil.lst--xref -o ..\.planning\2026-11-03-seven-led-io\build\objects\startup_mm32spin0230_keil.o--depend ..\.planning\2026-11-03-seven-led-io\build\objects\startup_mm32spin0230_keil.d)
+F (..\MOTOR_CONTROL\motor_control.c)(0x6AD73A9D)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../MM32SPIN0230/Include -I ../MM32SPIN0230/HAL_Lib/inc -I ../DRIVE/inc -I ../SYSTEM/inc -I ../USER/inc -I ../M1_CONTROL/inc -I ../MM_MCLIB/inc -I ../MM_MCLIB/inc -I ../MY_MC -I ../MOTOR_CONTROL -I ../MC_CORE-I./RTE/_MM32SPIN0230-ID:/Users/mym02/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="541" -D_RTE_ -DUSE_STDPERIPH_DRIVER -DUSE_5V-o ../.planning/2026-11-03-seven-led-io/build/objects/motor_control.o -MMD)
+I (..\MOTOR_CONTROL\motor_control.h)(0x6A9E8A28)
+I (..\MM32SPIN0230\Include\mm32spin0230.h)(0x6A3A7418)
+I (D:\Users\mym02\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0.h)(0x6A994285)
+I (..\MM32SPIN0230\Include\reg_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\reg_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_conf.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_adc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\Include\mm32_device.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_comp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dbg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_hwdiv.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_dma.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_exti.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_flash.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_gpio.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_iwdg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_misc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_pwr.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_opamp.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_rcc.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_syscfg.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_tim.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_usart.h)(0x6A3A7418)
+I (..\MM32SPIN0230\HAL_Lib\inc\hal_uid.h)(0x6A3A7418)
+I (..\MC_CORE\mc_core.h)(0x6A9E8B60)
+I (..\DRIVE\inc\drv_pwm.h)(0x6A9E8A87)
+I (..\USER\inc\parameter.h)(0x6AE97FB0)
+I (..\MM32SPIN0230\HAL_Lib\inc\HAL_device.h)(0x6A3A7418)
+I (..\USER\inc\board.h)(0x6AE982F1)
+I (..\DRIVE\inc\drv_adc.h)(0x6A9E8A87)
+I (..\USER\inc\user_control.h)(0x6AE97FB0)
+I (..\SYSTEM\inc\systick.h)(0x6A9E8B00)
+I (..\MOTOR_CONTROL\motor_config.h)(0x6AD73A9D)
+F (..\MOTOR_CONTROL\motor_config.h)(0x6AD73A9D)()
+F (..\MC_CORE\002_mc_core_V1_01.lib)(0x6A9407AA)()

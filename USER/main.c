@@ -112,7 +112,7 @@ int main(void)
 	/* 初始化滴答定时器 */
 	Systick_Init(0x00ffffff);
 	
-	/* 上电飞钻检测已取消（原 PA12 现归 USART RX） */
+	/* 上电飞钻检测已取消（PA12 现用于照明输出） */
 
 	
 	//systick_delay_us(10000);//等待电源及ADC稳定
@@ -140,7 +140,7 @@ int main(void)
 	/* 电机控制核心初始化 */
 	mc_init();
 
-	/* 电源保持端口初始化（EN = PA13） */
+	/* 电源保持端口初始化（EN = PA11） */
 	En_Port_init();
 	GPIO_WriteBit(EN_PORT, EN_PIN , Bit_SET);
 	/* LED初始化 */
@@ -156,17 +156,17 @@ int main(void)
 	user_list.led_reuse_adc_flag=0;
 	user_list.led_scan_start_flag=1;
 	systick_delay_us(5000);//等待ADC稳定
-	/* 方向IO滤波初始化（调用20次完成方向确认） */
-	for(i=0;i<20;i++)  //须在mc_init之后，mc_init中已有初始化但此处重新确认
+	/* 先确认扳机状态，防止初始gToolTrigger=0提前解除上电重扣锁定。 */
+	for(i=0;i<30;i++)
 	{
-		user_direction_handle();
-	}
-	systick_delay_us(1000);
-
-	for(i=0;i<30;i++)  //须在mc_init之后，mc_init中已有初始化但此处重新确认
-	{
+		systick_delay_us(1000);
 		motor_on_off_control();
-
+	}
+	/* 每次方向去抖之前等待新的复用输入采样。 */
+	for(i=0;i<20;i++)
+	{
+		systick_delay_us(1000);
+		user_direction_handle();
 	}
 
 	/* 上电时快速检测电压状态 */
