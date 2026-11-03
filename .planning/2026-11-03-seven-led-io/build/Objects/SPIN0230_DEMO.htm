@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\.planning\2026-11-03-seven-led-io\build\Objects\SPIN0230_DEMO.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\.planning\2026-11-03-seven-led-io\build\Objects\SPIN0230_DEMO.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Tue Nov  3 16:05:12 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Tue Nov  3 16:34:51 2026
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1168,8 +1168,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mos_check_current
 </UL>
 
-<P><STRONG><a name="[9f]"></a>UO_Led_Handler</STRONG> (Thumb, 268 bytes, Stack size 16 bytes, led.o(.text.UO_Led_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = UO_Led_Handler &rArr; LedError_Control
+<P><STRONG><a name="[9f]"></a>UO_Led_Handler</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, led.o(.text.UO_Led_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = UO_Led_Handler &rArr; LedError_Control
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedError_Run
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedSoc_Run
@@ -1294,7 +1294,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a8]"></a>led_init</STRONG> (Thumb, 196 bytes, Stack size 32 bytes, led.o(.text.led_init))
+<P><STRONG><a name="[a8]"></a>led_init</STRONG> (Thumb, 192 bytes, Stack size 32 bytes, led.o(.text.led_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = led_init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
@@ -1469,7 +1469,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ba]"></a>user_state_control</STRONG> (Thumb, 492 bytes, Stack size 24 bytes, user_control.o(.text.user_state_control))
+<P><STRONG><a name="[ba]"></a>user_state_control</STRONG> (Thumb, 476 bytes, Stack size 24 bytes, user_control.o(.text.user_state_control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = user_state_control
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bat_Com_Sleep

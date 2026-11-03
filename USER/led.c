@@ -4,12 +4,8 @@
 #include "parameter.h"
 
 User_LED_Control_t user_led_control;
-Light_Ctrl_t light_ctrl;
 volatile BITS_UNION ledData;
 static uint8_t led_scan_index;
-
-#define LIGHT_DELAY_NORMAL_MS (10000u)
-#define LIGHT_DELAY_FAULT_MS  (30000u)
 
 /* 换行前先断开所有阳极，再将公共阴极全拉高，避免切换瞬间串灯。 */
 static void led_matrix_blank(void)
@@ -50,8 +46,6 @@ void led_init(void)
 	user_list.led_input_valid=0;
 	user_list.Key_Data=1;
 	user_list.Dir_Data=1;
-	light_ctrl.state=LIGHT_OFF;
-	light_ctrl.cnt=0;
 }
 
 /* TIM1每个PWM周期调用：7个点灯槽+输入准备槽+输入采样槽。
@@ -109,94 +103,18 @@ void LED_Scan(void)
 	}
 }
 
-static uint8_t Light_Fault_Active(void)
-{
-    return (uint8_t)((machine_error_hold.userErr_hold.word != 0) ||
-                     (machine_error_hold.MC_error_hold.word != 0));
-}
-
-/**
- * @brief  照明功能状态机
- *        故障时松开开关  -> 立即熄灭
- *        无故障时松开开关-> 延时 10s 熄灭
- *        故障时不松开开关-> 延时 30s 熄灭
- *        无故障且按住    -> 点亮
- */
-void Light_Handler(void)
-{
-    uint8_t fault = Light_Fault_Active();
-    uint8_t trig  = user_list.flag.bits.gToolTrigger;
-
-    if(user_list.user_state == TOOL_POWER_DOWN)
-    {
-        light_ctrl.state = LIGHT_OFF;
-        light_ctrl.cnt   = 0;
-        return;
-    }
-
-    if(trig)
-    {
-        if(fault)
-        {
-            if(light_ctrl.state != LIGHT_WAIT_30S)
-            {
-                light_ctrl.state = LIGHT_WAIT_30S;
-                light_ctrl.cnt   = 0;
-            }
-            if(light_ctrl.cnt < LIGHT_DELAY_FAULT_MS)
-            {
-                light_ctrl.cnt++;
-            }
-        }
-        else
-        {
-            light_ctrl.state = LIGHT_ON;
-            light_ctrl.cnt   = 0;
-        }
-    }
-    else if(fault || light_ctrl.state == LIGHT_WAIT_30S)
-    {
-        /* 松手时故障锁存可能已清除，仍须立即结束故障显示。 */
-        light_ctrl.state = LIGHT_OFF;
-        light_ctrl.cnt   = 0;
-    }
-    else
-    {
-        if(light_ctrl.state == LIGHT_ON)
-        {
-            light_ctrl.state = LIGHT_WAIT_10S;
-            light_ctrl.cnt   = 0;
-        }
-        if(light_ctrl.state == LIGHT_WAIT_10S)
-        {
-            if(++light_ctrl.cnt >= LIGHT_DELAY_NORMAL_MS)
-            {
-                light_ctrl.state = LIGHT_OFF;
-            }
-        }
-    }
-}
-
-
 void UO_Led_Handler(void)
 {
-	Light_Handler();
-	if(light_ctrl.state==LIGHT_ON || light_ctrl.state==LIGHT_WAIT_10S ||
-	   (light_ctrl.state==LIGHT_WAIT_30S && light_ctrl.cnt<LIGHT_DELAY_FAULT_MS))
-	{
-		GPIO_SetBits(LED_LIGHT_PORT, LED_LIGHT_PIN);
-	}
-	else
-	{
-		GPIO_ResetBits(LED_LIGHT_PORT, LED_LIGHT_PIN);
-	}
 	if(user_list.user_state==TOOL_POWER_DOWN)
 	{
+		GPIO_ResetBits(LED_LIGHT_PORT, LED_LIGHT_PIN);
 		ledData.Word=0;
 		user_led_control.LedRunTimes=0;
 		user_led_control.LedDeal=0;
 		return;
 	}
+	/* 照明与矩阵共用5s休眠关灯，取消独立10s/30s计时。 */
+	GPIO_SetBits(LED_LIGHT_PORT, LED_LIGHT_PIN);
 	if(LedError_Control() && user_list.flag.bits.gToolTrigger)
 	{
 		LedError_Run();

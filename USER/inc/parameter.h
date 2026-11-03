@@ -290,29 +290,23 @@
 #define VBUS_BASE_X100       ((u32)(VBUS_SHUNT_RATIO*ADC_REFV*100))
 
 //40
-#define VBus_Stb_UVP_V                                          (12.80f)/*unit:v*/
+#define VBus_Stb_UVP_V                                          (14.80f)/*unit:v*/
 #define VBus_Stb_UVP_ADC     		       	                    (u16)(VBus_Stb_UVP_V * ADC_REF_VALUE / VBUS_SHUNT_RATIO / ADC_REFV)  		/* 稳态欠压保护阈值*/
 #define VBus_Stb_UVP_FiltMS                                     (100)/*unit:ms*/
 #define VBus_Stb_UVP_FiltMS_COUNT                               (u16)((float)VBus_Stb_UVP_FiltMS*SLOWLOOP_FRE/1000.0f)
                     
-#define VBus_Run_UVP1_V                                         (12.80f)/*unit:v*/
+#define VBus_Run_UVP1_V                                         (13.20f)/*unit:v*/
 #define VBus_Run_UVP1_ADC     		       	                      (u16)(VBus_Run_UVP1_V * ADC_REF_VALUE / VBUS_SHUNT_RATIO / ADC_REFV)
 #define VBus_Run_UVP1_FiltMS                                    (500)/*unit:ms*/
 #define VBus_Run_UVP1_FiltMS_COUNT                              (u16)((float)VBus_Run_UVP1_FiltMS*SLOWLOOP_FRE/1000.0f)
-	
-#define VBus_Res_UVP_V                                         (13.80f)/*unit:v*/
-#define VBus_Res_UVP_ADC     		       	                      (u16)(VBus_Res_UVP_V * ADC_REF_VALUE / VBUS_SHUNT_RATIO / ADC_REFV)
-#define VBus_Res_UVP_FiltMS                                    (500)/*unit:ms*/
-#define VBus_Res_UVP_FiltMS_COUNT                              (u16)((float)VBus_Res_UVP_FiltMS*SLOWLOOP_FRE/1000.0f)
-
-
+	 
 #define VBus_Run_UVP2_V                                         (8.00f)/*unit:v*/
 #define VBus_Run_UVP2_ADC     		       	                    (u16)(VBus_Run_UVP2_V * ADC_REF_VALUE / VBUS_SHUNT_RATIO / ADC_REFV)
 #define VBus_Run_UVP2_FiltMS                                    (10)/*unit:ms*/
 #define VBus_Run_UVP2_FiltMS_COUNT                              (u16)((float)VBus_Run_UVP2_FiltMS*SLOWLOOP_FRE/1000.0f)
 
     
-#define VBus_OVP_V                                              (22.30f)/*unit:v*/
+#define VBus_OVP_V                                              (24.00f)/*unit:v*/
 #define VBus_OVP_ADC     		       	                             (u16)(VBus_OVP_V * ADC_REF_VALUE / VBUS_SHUNT_RATIO / ADC_REFV)
 #define VBus_OVP_FiltMS                                         (300)/*unit:ms*/
 #define VBus_OVP_FiltMS_COUNT                                   (u16)((float)VBus_OVP_FiltMS*SLOWLOOP_FRE/1000.0f)

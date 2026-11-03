@@ -16,3 +16,10 @@
 - 当前方向逻辑直接读PB8/PB9，需改读扫描缓存；保留停稳换向与松手重新扣动联锁。
 - Keil AC6 6.22 安装位置 D:/Users/mym02/AppData/Local/Keil_v5，UV4/UV4.exe 可用。
 - pdftoppm渲染成功；pdftotext不在PATH，直接视觉核对两页完整图纸。
+
+## 2026-11-03 取消10s/30s照明延时
+
+- 参考USER/inc/parameter.h:25为SLEEP_TIME=5000ul；USER/user_control.c的TOOL_STOP和TOOL_ERROR_STOP均按++sleep_cnt>SLEEP_TIME休眠，故障扳机按住时计数清零。
+- 参考USER/led.c:485起的UO_Led_Handler在TOOL_POWER_DOWN关闭矩阵，其余时间显示电量/按住故障报警；没有独立10s/30s照明计时。
+- 当前两处休眠条件附加light_ctrl.state==LIGHT_OFF，使照明10s/30s策略影响整板休眠。应移除此条件及Light_Handler状态机；新板PA12照明随TOOL_POWER_DOWN统一关灯。
+- 本轮起始源码已被用户提交；现有修改仅Keil UI/构建日志和未跟踪.claude，保留。

@@ -13,11 +13,14 @@ spec.loader.exec_module(runner)
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    code = ['#include "main.h"', '#include "board.h"', '#include "user_control.h"', '#include "parameter.h"', '#include "motor_control.h"', '#include "led.h"']
+    code = ['#include "main.h"', '#include "board.h"', '#include "user_control.h"', '#include "parameter.h"', '#include "motor_control.h"', '#include "led.h"', '#include "Bat_com.h"']
     code += ['User_list_Struct user_list;', 'Machine_ERROR_HOLD machine_error_hold;',
              'Mc_core_list mc_core_list;', 'Motor_Control_list motor_control_list;']
     code.append(runner.extract_function(ROOT / 'USER/user_control.c', 'void user_direction_handle(void)'))
     code.append(runner.extract_function(ROOT / 'USER/user_control.c', 'u8 key_scan(void)'))
+    for signature in ['uint8_t Bat_Com_CanRun(void)', 'void Bat_Com_Sleep(void)', 'void Bat_Com_Restart(void)']:
+        code.append(runner.extract_function(ROOT / 'USER/Bat_com.c', signature))
+    code.append(runner.extract_function(ROOT / 'USER/user_control.c', 'void user_state_control(void)'))
     code.append('#include "' + (ROOT / 'tests/seven_led/test_seven_led.c').as_posix() + '"')
     source = OUT / 'test_main.c'
     source.write_text('\n'.join(code), encoding='utf-8')
@@ -29,7 +32,8 @@ def main():
                '-Wl,--ro-base=0x08000000,--rw-base=0x20000000,--entry=run_tests',
                '-o', str(image), str(source), str(ROOT / 'USER/led.c'),
                str(ROOT / 'MM32SPIN0230/HAL_Lib/src/hal_gpio.c'),
-               str(ROOT / 'MM32SPIN0230/HAL_Lib/src/hal_rcc.c')]
+               str(ROOT / 'MM32SPIN0230/HAL_Lib/src/hal_rcc.c'),
+               str(ROOT / 'MM32SPIN0230/HAL_Lib/src/hal_tim.c')]
     for path in ['USER/inc', 'MOTOR_CONTROL', 'MC_CORE', 'DRIVE/inc', 'SYSTEM/inc',
                  'MM32SPIN0230/Include', 'MM32SPIN0230/HAL_Lib/inc', 'CMSIS/Core/Include']:
         command += ['-I', str(ROOT / path)]
@@ -68,7 +72,7 @@ def execute(image, boot_scenario=0):
     stop = 0x080f0000
     uc.reg_write(UC_ARM_REG_SP, 0x200ffff0)
     uc.reg_write(UC_ARM_REG_LR, stop | 1)
-    uc.emu_start(symbols['run_tests'] | 1, stop, timeout=20_000_000, count=20_000_000)
+    uc.emu_start(symbols['run_tests'] | 1, stop, timeout=30_000_000, count=40_000_000)
     assert uc.reg_read(UC_ARM_REG_PC) == stop, 'test did not return'
     def word(name):
         return struct.unpack('<I', uc.mem_read(symbols[name], 4))[0]

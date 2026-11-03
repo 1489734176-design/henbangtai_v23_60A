@@ -222,6 +222,98 @@ static void test_soc_boot_levels(void)
 	}
 }
 
+static void reset_light_fixture(void)
+{
+	memset(&user_list, 0, sizeof(user_list));
+	memset(&machine_error_hold, 0, sizeof(machine_error_hold));
+	memset(&mc_core_list, 0, sizeof(mc_core_list));
+	memset(&motor_control_list, 0, sizeof(motor_control_list));
+	memset(&user_led_control, 0, sizeof(user_led_control));
+	led_init();
+	GPIO_SetBits(EN_PORT, EN_PIN);
+	user_list.led_scan_start_flag=1;
+	user_list.dir_valid=1;
+	user_list.direction_ready=1;
+	user_list.user_state=TOOL_RUN;
+	user_list.flag.bits.gToolTrigger=1;
+	user_list.VBus_Vx100=2100;
+}
+
+static void run_light_tick(void)
+{
+	/* 与main的1ms任务顺序相同：先状态机，再灯显示。 */
+	user_state_control();
+	UO_Led_Handler();
+}
+
+static void test_release_sleep_and_repress(void)
+{
+	unsigned i;
+	reset_light_fixture();
+	run_light_tick();
+	CHECK(GPIOA->ODR & LED_LIGHT_PIN);
+	CHECK((ledData.Word & 0x0e)!=0);
+	user_list.flag.bits.gToolTrigger=0;
+	run_light_tick(); /* RUN -> STOP，下一次1ms任务开始休眠计数。 */
+	for(i=0;i<1000;i++) run_light_tick();
+	CHECK(user_list.user_state==TOOL_STOP && (GPIOA->ODR & LED_LIGHT_PIN));
+	user_list.flag.bits.gToolTrigger=1;
+	run_light_tick();
+	CHECK(user_list.user_state==TOOL_RUN && user_list.sleep_cnt==0);
+	user_list.flag.bits.gToolTrigger=0;
+	run_light_tick();
+	for(i=0;i<5000;i++)
+	{
+		run_light_tick();
+		CHECK(user_list.user_state==TOOL_STOP);
+		CHECK((GPIOA->ODR & LED_LIGHT_PIN) && (ledData.Word & 0x0e));
+	}
+	CHECK(user_list.sleep_cnt==5000);
+	run_light_tick();
+	CHECK(user_list.user_state==TOOL_POWER_DOWN); /* 与参考一致：计数>5000 */
+	CHECK(!(GPIOA->ODR & LED_LIGHT_PIN) && ledData.Word==0);
+	CHECK(!user_list.flag.bits.gToolEn);
+	run_light_tick();
+	CHECK(!(GPIOA->ODR & EN_PIN));
+	for(i=0;i<9;i++) LED_Scan();
+	CHECK(!(GPIOA->CRH & GPIO_CRH_MODE14) && !(GPIOB->CRH & GPIO_CRH_MODE8));
+	user_list.flag.bits.gToolTrigger=1;
+	run_light_tick();
+	CHECK(user_list.user_state==TOOL_STOP && (GPIOA->ODR & EN_PIN));
+	CHECK((GPIOA->ODR & LED_LIGHT_PIN) && (ledData.Word & 0x0e));
+}
+
+static void test_fault_hold_and_release_sleep(void)
+{
+	unsigned i;
+	reset_light_fixture();
+	user_list.user_state=TOOL_ERROR_STOP;
+	user_list.userErr.bits.gNtcMos=1;
+	machine_error_hold.userErr_hold.bits.gNtcMos=1;
+	for(i=0;i<30050;i++)
+	{
+		run_light_tick();
+		CHECK(user_list.user_state==TOOL_ERROR_STOP && user_list.sleep_cnt==0);
+		CHECK(GPIOA->ODR & LED_LIGHT_PIN); /* 故障长按超过30s也不再关闭照明。 */
+		CHECK(!user_list.flag.bits.gToolEn);
+	}
+	CHECK(user_led_control.LedRunCnt_Once==3);
+	user_list.flag.bits.gToolTrigger=0;
+	for(i=0;i<5000;i++)
+	{
+		run_light_tick();
+		CHECK(user_list.user_state==TOOL_ERROR_STOP);
+		CHECK((GPIOA->ODR & LED_LIGHT_PIN) && (ledData.Word & 0x0e));
+	}
+	CHECK(user_list.sleep_cnt==5000);
+	run_light_tick();
+	CHECK(user_list.user_state==TOOL_POWER_DOWN);
+	CHECK(!(GPIOA->ODR & LED_LIGHT_PIN) && ledData.Word==0);
+	CHECK(machine_error_hold.userErr_hold.bits.gNtcMos); /* 关灯不得清保护。 */
+	run_light_tick();
+	CHECK(!(GPIOA->ODR & EN_PIN));
+}
+
 uint32_t run_tests(void)
 {
 	if(test_boot_scenario)
@@ -244,5 +336,11 @@ uint32_t run_tests(void)
 	if(test_failure_line) return test_failure_line;
 	test_case=5;
 	test_soc_immediate_run();
+	if(test_failure_line) return test_failure_line;
+	test_case=6;
+	test_release_sleep_and_repress();
+	if(test_failure_line) return test_failure_line;
+	test_case=7;
+	test_fault_hold_and_release_sleep();
 	return test_failure_line;
 }

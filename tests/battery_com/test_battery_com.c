@@ -3,7 +3,6 @@
 USART_TypeDef test_usart;
 uint8_t test_com_en;
 uint32_t PI_sum_i, PI_p, pwm_duty_aim_PI_OUT;
-struct test_light light_ctrl;
 User_list_Struct user_list;
 Machine_ERROR_HOLD machine_error_hold;
 Motor_Control_list motor_control_list;
@@ -83,7 +82,6 @@ static void reset_fixture(void)
     sent_count = 0;
     motor_actions = 0;
     ipd_calls = 0;
-    light_ctrl.state = LIGHT_OFF;
     user_list.direction_ready = 1;
     user_list.dir_valid = 1;
     user_list.led_input_valid = 1;

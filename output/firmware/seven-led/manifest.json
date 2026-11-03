@@ -5,33 +5,33 @@
   "build_result": "0 errors, 0 warnings",
   "flash_range": [
     "0x8000000",
-    "0x8004b90"
+    "0x8004ac0"
   ],
-  "bytes": 19344,
+  "bytes": 19136,
   "hardware_tested": false,
   "tests": [
-    "seven_led: 5 cases, 12081 checks; 4 cold-start SOC profiles, 5 checks",
+    "seven_led: 7 cases, 122249 checks; 4 cold-start SOC profiles, 5 checks",
     "battery_com: 12 cases, 220 checks (BAT_COM_EN=1 test build only)"
   ],
   "firmware_sha256": {
-    "SPIN0230_DEMO.axf": "4532cd80df687869d2d217f81943ddeac4c4e331e3a0895db9c080e573369b76",
-    "SPIN0230_DEMO.bin": "249f7ffae4cc4d39f6790fca4f9714885d991ed25badc092f44fe7b9bad6dd6a",
-    "SPIN0230_DEMO.hex": "90c6d259b4ade4d1af49fca1e0d6c6d3e68ebc6b14ccb69d572222a62021e13d"
+    "SPIN0230_DEMO.axf": "df1063b44a97f67cbfe7f698fb7142644a062ac9e19f3e157eb83c0e72a17f81",
+    "SPIN0230_DEMO.bin": "3ae7df5f5193e0b58faab729f2ad68d770399a65ea104c3e421ea8ad97e35d10",
+    "SPIN0230_DEMO.hex": "ca37cde718393599efe8a098eae807bcf5031473f04b98572636772989048aa7"
   },
   "source_sha256": {
     "USER/Bat_com.c": "7806e85fe400bec714e437db5a6e4d658e57bcf17508f7aa0cdf01c7ce885335",
     "USER/board.c": "ddb64f87f516a1539479bfa1da265190f0fd78d4e94496d08d46a854156c0bef",
     "USER/flash_data_save.c": "25a8ec39276316a5a751efcd34118d317027ff118920829da90c9524d4425353",
-    "USER/led.c": "e94f2fa19569f13cb98270ca32f0d17209a398cbcf89f16014224a100d856931",
+    "USER/led.c": "f3485d06b80f29a449cf5e7897266887762d3338a673a12fa459b109db0eb18d",
     "USER/main.c": "1d3e755644a9f597710d4d60a612b4b564e379ea6139025c56ac8451d7cccaa8",
     "USER/mm32_it.c": "a03f82bf51548c32d86a52f63e3f399a449f2f5cd1e711d9d2e25e8394bad526",
-    "USER/user_control.c": "c67c3398cfd992442decef6c586f85b1111ff2bd61a6aad60b19d262a498a6c6",
+    "USER/user_control.c": "6310bcd4b21957a375b393faf62b08d1d3cb6a46407e6ba424a3d19ca8cb142d",
     "USER/user_function.c": "a25a4dcc6dee1d4a584f213eb1ec16b443eba1623cc528fb3ed94faba7bc227d",
     "USER/inc/Bat_com.h": "594789e4e39297cec9f6b59f4ce3df5b2a0d369e075f7d9b6b018f29e7394899",
     "USER/inc/board.h": "0b69dfa2f8fcc5ffbe0d8ac422be8a738458b244c1620914420e681af5665451",
     "USER/inc/drv_inc.h": "4d868b1893da8132876520b40a58c4f90956bf4ee9a18b66e5e2ea1715a852de",
     "USER/inc/flash_data_save.h": "75922b7f507b81345c686abe6703424edc5be024a5ad531b707c34956e3fad66",
-    "USER/inc/led.h": "ff7b0c6fb3775649dcbec9533d32b76150a85f5601817af66976a9b430920139",
+    "USER/inc/led.h": "86c11ad50c8ccbba8bc43ef7ef05bf0ed170d7b0981db6b4458c1155e24d58d5",
     "USER/inc/main.h": "3fff458b3de30e73f1957503b179372a5c9d9bd2bd7ed891c4e979bf340b68c2",
     "USER/inc/mm32_it.h": "8fb981c500a08c94831a45865e7c3b11e6cb465ba920a16166e88e424379aec4",
     "USER/inc/parameter.h": "55f2a7fd5e9219a9cb00f42e766139a44c420c091a03583da2be8a71190c4b95",
@@ -46,6 +46,7 @@
     "DS/TBAT reserved; battery communication and battery-temperature detection disabled.",
     "Trigger powers the board: first stable direction confirmation permits the initial press; subsequent direction changes still require release.",
     "SOC is initialized on first display, including an immediate motor run; running voltage sag does not change the displayed level.",
+    "Removed separate 10s/30s illumination timers: matrix and PA12 illumination turn off together at the reference 5s sleep timeout after trigger release. Held faults keep displaying without a 30s cutoff.",
     "LED7 has a scan slot; automatic display defaults off pending its intended use.",
     "See docs/seven-led-board.md for IO, alarm mapping and required bench checks."
   ]

@@ -41,9 +41,6 @@ extern uint32_t PI_sum_i, PI_p, pwm_duty_aim_PI_OUT;
 #define DIR_PORT ((void *)2)
 #define DIR_PIN (1u << 8)
 #define RWD_PIN (1u << 9)
-#define LIGHT_OFF 0
-
-extern struct test_light { uint8_t state; } light_ctrl;
 uint32_t __get_PRIMASK(void);
 void __disable_irq(void);
 void __set_PRIMASK(uint32_t value);

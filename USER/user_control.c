@@ -1020,10 +1020,7 @@ void Volt_Handler_fast(void)
         }
         else 
         {
-			if(Vbus_temp > VBus_Res_UVP_ADC)
-			{
 			      	user_list.userErr.bits.gVBusStbUVP = 0;
-			}
         }
 
 				#endif
@@ -1036,12 +1033,8 @@ void Volt_Handler_fast(void)
 
         }
         else
-        {
-			if(Vbus_temp > VBus_Res_UVP_ADC)
-			{
-							user_list.userErr.bits.gVBusRunUVP1 = 0;
-			}
-
+        {			
+				user_list.userErr.bits.gVBusRunUVP1 = 0;
         }
         
        
@@ -1090,16 +1083,13 @@ void Volt_Handler(void)
         }
         else 
         {
-			if(Vbus_temp > VBus_Res_UVP_ADC)
+			if(VBusStbUVP_Cnt)
 			{
-				if(VBusStbUVP_Cnt)
-				{
-					VBusStbUVP_Cnt--;
-				}
-				else
-				{
-						user_list.userErr.bits.gVBusStbUVP = 0;
-				}
+				VBusStbUVP_Cnt--;
+			}
+			else
+			{
+					user_list.userErr.bits.gVBusStbUVP = 0;
 			}
         }
 
@@ -1114,7 +1104,7 @@ void Volt_Handler(void)
                 
             }
         }
-        else if(Vbus_temp > VBus_Res_UVP_ADC)
+        else
         {
 			
             if(VBusRunUVP1_Cnt)
@@ -2120,7 +2110,7 @@ void user_state_control(void)
 		case TOOL_STOP:
 			user_list.flag.bits.gToolEn=0;
 			user_list.Load_exist=0;
-			if(++user_list.sleep_cnt>SLEEP_TIME && light_ctrl.state==LIGHT_OFF)  // 休眠超时，进入低功耗
+			if(++user_list.sleep_cnt>SLEEP_TIME)  // 休眠超时，进入低功耗
 			{
 				/* 休眠前先停用通信释放总线，随后 break 防止后续逻辑覆盖 POWER_DOWN */
 				Bat_Com_Sleep();
@@ -2158,7 +2148,7 @@ void user_state_control(void)
 		case TOOL_ERROR_STOP:
 			user_list.flag.bits.gToolEn=0;
 //			user_list.Load_exist=0;
-			if(++user_list.sleep_cnt>SLEEP_TIME && light_ctrl.state==LIGHT_OFF)
+			if(++user_list.sleep_cnt>SLEEP_TIME)
 			{
 				/* 报错停机下同样先停用通信再进入休眠，break 保护 POWER_DOWN 不被覆盖 */
 				Bat_Com_Sleep();

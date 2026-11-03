@@ -85,15 +85,11 @@ typedef struct
     uint8_t gSocUpdate;
 } User_LED_Control_t;
 
-typedef enum { LIGHT_OFF=0, LIGHT_ON, LIGHT_WAIT_10S, LIGHT_WAIT_30S } Light_State_t;
-typedef struct { Light_State_t state; uint32_t cnt; } Light_Ctrl_t;
 extern User_LED_Control_t user_led_control;
-extern Light_Ctrl_t light_ctrl;
 void led_init(void);
 void LED_Scan(void);
 void UO_Led_Handler(void);
 void LedSoc_Run(uint32_t volt_vx100, uint8_t display_en, uint8_t fast_mode);
 uint8_t LedError_Control(void);
 void LedError_Run(void);
-void Light_Handler(void);
 #endif
